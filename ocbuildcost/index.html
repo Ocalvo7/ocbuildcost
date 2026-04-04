@@ -3,292 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OC Build Cost — Construction Cost Intelligence for Orange County</title>
+<title>OC Build Cost — Orange County Permit Fee Calculator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black: #0a0a08;
-  --white: #f5f3ee;
-  --orange: #e85d26;
-  --orange-light: #ff7a45;
-  --gold: #c9a84c;
-  --gray: #2a2a25;
-  --gray-mid: #4a4a42;
-  --gray-light: #8a8a7a;
-  --border: rgba(245,243,238,0.12);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--black);
-  color: var(--white);
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 48px;
-  border-bottom: 1px solid var(--border);
-  background: rgba(10,10,8,0.85);
-  backdrop-filter: blur(12px);
-}
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px;
-  letter-spacing: 2px;
-  color: var(--white);
-  text-decoration: none;
-}
-.logo span { color: var(--orange); }
-nav ul { list-style: none; display: flex; gap: 36px; }
-nav ul a {
-  font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--gray-light);
-  text-decoration: none; transition: color 0.2s;
-}
-nav ul a:hover { color: var(--white); }
-.nav-cta {
-  background: var(--orange); color: var(--white) !important;
-  padding: 10px 22px; border-radius: 4px; letter-spacing: 0.06em !important;
-}
-.nav-cta:hover { background: var(--orange-light) !important; color: var(--white) !important; }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 120px 48px 80px;
-  position: relative; overflow: hidden;
-}
-.hero-grid {
-  position: absolute; inset: 0; opacity: 0.04;
-  background-image: linear-gradient(var(--white) 1px, transparent 1px),
-    linear-gradient(90deg, var(--white) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-accent {
-  position: absolute; top: 0; right: 0;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle at center, rgba(232,93,38,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--orange); border: 1px solid var(--orange);
-  padding: 6px 14px; border-radius: 2px;
-  margin-bottom: 32px; width: fit-content;
-}
-.hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(72px, 10vw, 140px);
-  line-height: 0.92;
-  letter-spacing: 2px;
-  margin-bottom: 32px;
-  max-width: 900px;
-}
-h1 .line2 { color: var(--orange); display: block; }
-h1 .line3 { color: var(--gray-light); display: block; font-size: 0.65em; }
-.hero-sub {
-  font-size: 18px; font-weight: 300; color: var(--gray-light);
-  max-width: 560px; line-height: 1.7; margin-bottom: 48px;
-}
-.hero-sub strong { color: var(--white); font-weight: 500; }
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-.btn-primary {
-  display: inline-block;
-  background: var(--orange); color: var(--white);
-  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 16px 36px; border-radius: 4px; text-decoration: none;
-  transition: all 0.2s; border: 2px solid var(--orange);
-}
-.btn-primary:hover { background: transparent; color: var(--orange); }
-.btn-secondary {
-  display: inline-block;
-  background: transparent; color: var(--white);
-  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 16px 36px; border-radius: 4px; text-decoration: none;
-  border: 2px solid var(--border); transition: all 0.2s;
-}
-.btn-secondary:hover { border-color: var(--white); }
-.hero-stats {
-  display: flex; gap: 48px; margin-top: 72px;
-  padding-top: 48px; border-top: 1px solid var(--border);
-}
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px; color: var(--orange); letter-spacing: 1px;
-}
-.stat-label { font-size: 12px; color: var(--gray-light); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
-
-/* TICKER */
-.ticker {
-  background: var(--orange); padding: 12px 0; overflow: hidden;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.ticker-inner {
-  display: flex; gap: 0; white-space: nowrap;
-  animation: ticker 30s linear infinite;
-}
-@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-.ticker-item {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 15px; letter-spacing: 3px;
-  color: var(--white); padding: 0 32px;
-  border-right: 1px solid rgba(255,255,255,0.3);
-}
-
-/* FEATURES */
-.section { padding: 100px 48px; }
-.section-tag {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 20px;
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(44px, 6vw, 80px);
-  letter-spacing: 2px; line-height: 1;
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 16px; color: var(--gray-light);
-  max-width: 480px; line-height: 1.7;
-}
-.features-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 2px; margin-top: 64px;
-  border: 1px solid var(--border);
-}
-.feature-card {
-  padding: 40px 36px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s;
-  position: relative; overflow: hidden;
-}
-.feature-card:hover { background: rgba(232,93,38,0.05); }
-.feature-num {
-  font-family: 'Bebas Neue', sans-serif; font-size: 64px;
-  color: var(--border); position: absolute; top: 20px; right: 24px;
-  letter-spacing: 2px; line-height: 1;
-}
-.feature-icon {
-  width: 40px; height: 40px; background: var(--orange);
-  border-radius: 4px; margin-bottom: 24px;
-  display: flex; align-items: center; justify-content: center;
-}
-.feature-icon svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; }
-.feature-title { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
-.feature-desc { font-size: 14px; color: var(--gray-light); line-height: 1.7; }
-
-/* TOOLS */
-.tools-section { padding: 100px 48px; background: var(--gray); }
-.tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px; }
-.tool-card {
-  background: var(--black); border: 1px solid var(--border);
-  border-radius: 8px; padding: 48px; position: relative; overflow: hidden;
-  transition: border-color 0.3s; text-decoration: none; color: inherit;
-  display: block;
-}
-.tool-card:hover { border-color: var(--orange); }
-.tool-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--orange); transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s;
-}
-.tool-card:hover::before { transform: scaleX(1); }
-.tool-badge {
-  display: inline-block; font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--orange); border: 1px solid var(--orange);
-  padding: 4px 10px; border-radius: 2px; margin-bottom: 24px;
-}
-.tool-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px; letter-spacing: 2px; margin-bottom: 16px;
-}
-.tool-desc { font-size: 14px; color: var(--gray-light); line-height: 1.7; margin-bottom: 32px; }
-.tool-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.tool-features li {
-  font-size: 13px; color: var(--gray-light);
-  display: flex; align-items: center; gap: 10px;
-}
-.tool-features li::before { content: '→'; color: var(--orange); font-weight: 600; flex-shrink: 0; }
-.tool-link {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 32px; font-size: 13px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange);
-  text-decoration: none;
-}
-.tool-link::after { content: '→'; transition: transform 0.2s; }
-.tool-card:hover .tool-link::after { transform: translateX(4px); }
-
-/* CITIES */
-.cities-section { padding: 100px 48px; }
-.cities-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 2px; margin-top: 48px; border: 1px solid var(--border);
-}
-.city-card {
-  padding: 28px 24px; border-right: 1px solid var(--border);
-  text-align: center;
-}
-.city-name { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-.city-status {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-}
-.city-status.live { color: var(--orange); }
-.city-status.soon { color: var(--gray-light); }
-
-/* DISCLAIMER */
-.disclaimer-section {
-  padding: 64px 48px; background: #0f0f0c;
-  border-top: 1px solid var(--border);
-}
-.disclaimer-inner {
-  max-width: 800px;
-  border-left: 3px solid var(--orange); padding-left: 24px;
-}
-.disclaimer-title { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
-.disclaimer-text { font-size: 13px; color: var(--gray-light); line-height: 1.8; }
-
-/* FOOTER */
-footer {
-  padding: 48px; border-top: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 24px;
-}
-.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; }
-.footer-logo span { color: var(--orange); }
-.footer-copy { font-size: 12px; color: var(--gray-light); }
-
-/* ANIMATIONS */
-.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  nav ul { display: none; }
-  .hero { padding: 100px 24px 60px; }
-  .section, .tools-section, .cities-section { padding: 64px 24px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .tools-grid { grid-template-columns: 1fr; }
-  .cities-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-stats { gap: 32px; flex-wrap: wrap; }
-  footer { padding: 32px 24px; flex-direction: column; text-align: center; }
-}
+:root{--black:#0a0a08;--white:#f5f3ee;--orange:#e85d26;--orange-light:#ff7a45;--gray:#2a2a25;--gray-mid:#4a4a42;--gray-light:#8a8a7a;--border:rgba(245,243,238,0.12);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--border);background:rgba(10,10,8,0.88);backdrop-filter:blur(12px);}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--white);text-decoration:none;}
+.logo span{color:var(--orange);}
+nav ul{list-style:none;display:flex;gap:36px;}
+nav ul a{font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-light);text-decoration:none;transition:color 0.2s;}
+nav ul a:hover{color:var(--white);}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:10px 22px;border-radius:4px;letter-spacing:0.06em!important;}
+.nav-cta:hover{background:var(--orange-light)!important;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(var(--white) 1px,transparent 1px),linear-gradient(90deg,var(--white) 1px,transparent 1px);background-size:60px 60px;}
+.hero-accent{position:absolute;top:0;right:0;width:600px;height:600px;background:radial-gradient(circle at center,rgba(232,93,38,0.15) 0%,transparent 70%);pointer-events:none;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);padding:6px 14px;border-radius:2px;margin-bottom:32px;width:fit-content;}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,140px);line-height:0.92;letter-spacing:2px;margin-bottom:32px;max-width:900px;}
+h1 .accent{color:var(--orange);}
+h1 .muted{color:var(--gray-light);font-size:0.6em;display:block;}
+.hero-sub{font-size:18px;font-weight:300;color:var(--gray-light);max-width:560px;line-height:1.7;margin-bottom:48px;}
+.hero-sub strong{color:var(--white);font-weight:500;}
+.btn-primary{display:inline-block;background:var(--orange);color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:16px 40px;border-radius:4px;text-decoration:none;transition:all 0.2s;border:2px solid var(--orange);}
+.btn-primary:hover{background:transparent;color:var(--orange);}
+.hero-stats{display:flex;gap:48px;margin-top:72px;padding-top:48px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--orange);letter-spacing:1px;}
+.stat-label{font-size:12px;color:var(--gray-light);letter-spacing:0.06em;text-transform:uppercase;margin-top:4px;}
+.ticker{background:var(--orange);padding:12px 0;overflow:hidden;}
+.ticker-inner{display:flex;white-space:nowrap;animation:ticker 28s linear infinite;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:var(--white);padding:0 32px;border-right:1px solid rgba(255,255,255,0.3);}
+.section{padding:100px 48px;}
+.section-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,80px);letter-spacing:2px;line-height:1;margin-bottom:16px;}
+.section-sub{font-size:16px;color:var(--gray-light);max-width:480px;line-height:1.7;margin-bottom:48px;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);}
+.feature-card{padding:40px 36px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.3s;position:relative;overflow:hidden;}
+.feature-card:hover{background:rgba(232,93,38,0.05);}
+.feature-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:var(--border);position:absolute;top:20px;right:24px;letter-spacing:2px;}
+.feature-icon{width:40px;height:40px;background:var(--orange);border-radius:4px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;}
+.feature-icon svg{width:20px;height:20px;fill:none;stroke:white;stroke-width:2;}
+.feature-title{font-size:18px;font-weight:600;margin-bottom:12px;}
+.feature-desc{font-size:14px;color:var(--gray-light);line-height:1.7;}
+.fee-types{padding:100px 48px;background:var(--gray);}
+.fee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;border:1px solid var(--border);}
+.fee-card{background:var(--black);padding:32px 28px;border-right:1px solid var(--border);}
+.fee-card-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);padding:3px 8px;border-radius:2px;display:inline-block;margin-bottom:16px;}
+.fee-card-title{font-size:16px;font-weight:600;margin-bottom:10px;}
+.fee-card-desc{font-size:13px;color:var(--gray-light);line-height:1.7;}
+.cities-section{padding:80px 48px;border-top:1px solid var(--border);}
+.cities-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:40px;border:1px solid var(--border);}
+.city-card{padding:24px 20px;border-right:1px solid var(--border);text-align:center;}
+.city-name{font-size:13px;font-weight:600;margin-bottom:6px;}
+.city-status{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;}
+.city-status.live{color:var(--orange);}
+.city-status.soon{color:var(--gray-light);}
+.cta-section{padding:100px 48px;text-align:center;background:var(--gray);border-top:1px solid var(--border);}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,100px);letter-spacing:2px;line-height:1;margin-bottom:24px;}
+.cta-title span{color:var(--orange);}
+.cta-sub{font-size:16px;color:var(--gray-light);max-width:480px;margin:0 auto 40px;line-height:1.7;}
+.disclaimer-section{padding:48px;border-top:1px solid var(--border);background:#0f0f0c;}
+.disclaimer-inner{max-width:800px;border-left:3px solid var(--orange);padding-left:24px;}
+.disclaimer-title{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
+.disclaimer-text{font-size:13px;color:var(--gray-light);line-height:1.8;}
+footer{padding:40px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;}
+.footer-logo span{color:var(--orange);}
+.footer-copy{font-size:12px;color:var(--gray-light);}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:16px 24px;}nav ul{display:none;}.hero{padding:100px 24px 60px;}.section,.fee-types,.cities-section,.cta-section{padding:60px 24px;}.features-grid{grid-template-columns:1fr;}.fee-grid{grid-template-columns:1fr 1fr;}.cities-grid{grid-template-columns:repeat(2,1fr);}.hero-stats{gap:28px;}footer{padding:28px 24px;flex-direction:column;text-align:center;}}
 </style>
 </head>
 <body>
@@ -296,10 +86,9 @@ footer {
 <nav>
   <a href="index.html" class="logo">OC<span>Build</span>Cost</a>
   <ul>
-    <li><a href="#tools">Tools</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
     <li><a href="#cities">Cities</a></li>
-    <li><a href="permit.html">Permit Calculator</a></li>
-    <li><a href="contractor.html" class="nav-cta">Start Estimating</a></li>
+    <li><a href="permit.html" class="nav-cta">Calculate Permit Fees →</a></li>
   </ul>
 </nav>
 
@@ -309,143 +98,142 @@ footer {
   <div class="hero-tag">Orange County, CA — Beta 2025</div>
   <h1>
     KNOW YOUR<br>
-    <span class="line2">BUILD COST</span>
-    <span class="line3">Before You Break Ground</span>
+    <span class="accent">PERMIT COSTS</span>
+    <span class="muted">Before You Submit</span>
   </h1>
   <p class="hero-sub">
-    The <strong>only tool built for OC contractors</strong> that combines real material costs, prevailing labor rates, and <strong>official permit fees</strong> from every major Orange County municipality — in one place.
+    The <strong>only free tool</strong> that calculates exact OC permit fees from official published municipal fee schedules — built by someone who actually processed these permits.
   </p>
-  <div class="hero-actions">
-    <a href="permit.html" class="btn-primary">Calculate Permit Fees</a>
-    <a href="contractor.html" class="btn-secondary">Build a Cost Estimate</a>
-  </div>
+  <a href="permit.html" class="btn-primary">Calculate Permit Fees Now →</a>
   <div class="hero-stats">
-    <div>
-      <div class="stat-num">10</div>
-      <div class="stat-label">OC Cities Covered</div>
-    </div>
-    <div>
-      <div class="stat-num">$0</div>
-      <div class="stat-label">Free to Use</div>
-    </div>
-    <div>
-      <div class="stat-num">2025</div>
-      <div class="stat-label">Fee Schedules</div>
-    </div>
-    <div>
-      <div class="stat-num">3</div>
-      <div class="stat-label">Project Types</div>
-    </div>
+    <div><div class="stat-num">43</div><div class="stat-label">Pages of SJC fee data</div></div>
+    <div><div class="stat-num">10+</div><div class="stat-label">Fee categories covered</div></div>
+    <div><div class="stat-num">$0</div><div class="stat-label">Free to use</div></div>
+    <div><div class="stat-num">2025</div><div class="stat-label">Official fee schedule</div></div>
   </div>
 </section>
 
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">SAN JUAN CAPISTRANO</span>
-    <span class="ticker-item">NEWPORT BEACH</span>
-    <span class="ticker-item">IRVINE</span>
-    <span class="ticker-item">HUNTINGTON BEACH</span>
-    <span class="ticker-item">COSTA MESA</span>
-    <span class="ticker-item">LAGUNA BEACH</span>
-    <span class="ticker-item">ANAHEIM</span>
-    <span class="ticker-item">SANTA ANA</span>
-    <span class="ticker-item">FULLERTON</span>
-    <span class="ticker-item">MISSION VIEJO</span>
-    <span class="ticker-item">SAN JUAN CAPISTRANO</span>
-    <span class="ticker-item">NEWPORT BEACH</span>
-    <span class="ticker-item">IRVINE</span>
-    <span class="ticker-item">HUNTINGTON BEACH</span>
-    <span class="ticker-item">COSTA MESA</span>
-    <span class="ticker-item">LAGUNA BEACH</span>
-    <span class="ticker-item">ANAHEIM</span>
-    <span class="ticker-item">SANTA ANA</span>
-    <span class="ticker-item">FULLERTON</span>
-    <span class="ticker-item">MISSION VIEJO</span>
+    <span class="ticker-item">BUILDING PERMIT FEES</span>
+    <span class="ticker-item">PLAN REVIEW FEES</span>
+    <span class="ticker-item">GRADING PERMITS</span>
+    <span class="ticker-item">NPDES STORMWATER</span>
+    <span class="ticker-item">PLUMBING REVIEW</span>
+    <span class="ticker-item">ELECTRICAL REVIEW</span>
+    <span class="ticker-item">MECHANICAL REVIEW</span>
+    <span class="ticker-item">SMIP STATE FEES</span>
+    <span class="ticker-item">GREEN BUILDING SB 1473</span>
+    <span class="ticker-item">PERMIT ISSUANCE</span>
+    <span class="ticker-item">BUILDING PERMIT FEES</span>
+    <span class="ticker-item">PLAN REVIEW FEES</span>
+    <span class="ticker-item">GRADING PERMITS</span>
+    <span class="ticker-item">NPDES STORMWATER</span>
+    <span class="ticker-item">PLUMBING REVIEW</span>
+    <span class="ticker-item">ELECTRICAL REVIEW</span>
+    <span class="ticker-item">MECHANICAL REVIEW</span>
+    <span class="ticker-item">SMIP STATE FEES</span>
+    <span class="ticker-item">GREEN BUILDING SB 1473</span>
+    <span class="ticker-item">PERMIT ISSUANCE</span>
   </div>
 </div>
 
-<section class="section" id="features">
+<section class="section" id="how-it-works">
   <div class="section-tag">Why OC Build Cost</div>
-  <div class="section-title">BUILT BY SOMEONE<br>WHO KNOWS PERMITS</div>
-  <p class="section-sub">Created by a finance professional who processed capital projects and permit applications at the City of San Juan Capistrano — not a developer guessing at fees.</p>
+  <div class="section-title">REAL DATA.<br>NOT ESTIMATES.</div>
+  <p class="section-sub">Every number comes directly from the official published fee schedule — not guesswork, not averages.</p>
   <div class="features-grid">
     <div class="feature-card fade-up">
       <div class="feature-num">01</div>
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
-      <div class="feature-title">Official Fee Schedules</div>
-      <div class="feature-desc">Real permit fees sourced directly from published municipal fee schedules — not estimates. San Juan Capistrano July 2025 schedule fully integrated.</div>
+      <div class="feature-title">Official fee schedules</div>
+      <div class="feature-desc">Fees pulled directly from the City of San Juan Capistrano's published Schedule of User and Regulatory Fees, effective July 1, 2025. More cities being added.</div>
     </div>
     <div class="feature-card fade-up">
       <div class="feature-num">02</div>
       <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
-      <div class="feature-title">All Project Types</div>
-      <div class="feature-desc">Residential remodels, new construction, and commercial build-outs. Handles single-family through multi-family to commercial occupancy classifications.</div>
+      <div class="feature-title">All project types</div>
+      <div class="feature-desc">Single family remodels, new construction, and commercial build-outs across all occupancy classifications — residential through industrial.</div>
     </div>
     <div class="feature-card fade-up">
       <div class="feature-num">03</div>
-      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-      <div class="feature-title">Full Cost Breakdown</div>
-      <div class="feature-desc">Itemize materials by type, labor by trade, and get a complete quote with markup, contingency, and permit fees — all in one number.</div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div>
+      <div class="feature-title">Every line item</div>
+      <div class="feature-desc">Building permit, plan review (90%), plumbing, electrical, mechanical add-ons, NPDES stormwater fee, SMIP, Green Building SB 1473, permit issuance, and automation fee — all calculated.</div>
     </div>
     <div class="feature-card fade-up">
       <div class="feature-num">04</div>
-      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
-      <div class="feature-title">Confidence Scoring</div>
-      <div class="feature-desc">Every estimate comes with a margin of error range and confidence rating — because real contractors know no number is guaranteed.</div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div class="feature-title">Instant results</div>
+      <div class="feature-desc">No sign-up. No waiting. Enter your project details and get a complete permit fee breakdown in seconds — ready to factor into your bid.</div>
     </div>
     <div class="feature-card fade-up">
       <div class="feature-num">05</div>
-      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-      <div class="feature-title">OC-Specific Data</div>
-      <div class="feature-desc">Built specifically for Orange County. Every municipality has different fee structures, multipliers, and requirements — we track all of them.</div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+      <div class="feature-title">Built by an insider</div>
+      <div class="feature-desc">Created by someone who processed capital projects and permit applications at the City of San Juan Capistrano. This isn't theory — it's firsthand knowledge.</div>
     </div>
     <div class="feature-card fade-up">
       <div class="feature-num">06</div>
-      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-      <div class="feature-title">Instant Results</div>
-      <div class="feature-desc">No sign-up, no waiting. Input your project details and get a complete cost breakdown in seconds — ready to use for your bid.</div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+      <div class="feature-title">Violation warnings</div>
+      <div class="feature-desc">Built-in alerts for common gotchas — unpermitted work fees (3× the permit fee), design review requirements, engineering stamps, and Title 24 add-ons.</div>
     </div>
   </div>
 </section>
 
-<section class="tools-section" id="tools">
-  <div class="section-tag">The Tools</div>
-  <div class="section-title">TWO TOOLS.<br>ONE DECISION.</div>
-  <p class="section-sub">Start with permits to understand your city fees, then build your full contractor quote.</p>
-  <div class="tools-grid">
-    <a href="permit.html" class="tool-card fade-up">
-      <div class="tool-badge">Official Data</div>
-      <div class="tool-title">PERMIT FEE CALCULATOR</div>
-      <p class="tool-desc">Calculate exact permit fees using official published fee schedules from OC municipalities. Know your true permit cost before you quote.</p>
-      <ul class="tool-features">
-        <li>Building permit + plan review fees</li>
-        <li>Plumbing, electrical & mechanical add-ons</li>
-        <li>NPDES, SMIP, automation & state fees</li>
-        <li>Grading permit fees included</li>
-        <li>SJC July 2025 schedule — more cities coming</li>
-      </ul>
-      <span class="tool-link">Open Calculator</span>
-    </a>
-    <a href="contractor.html" class="tool-card fade-up">
-      <div class="tool-badge">2025 OC Rates</div>
-      <div class="tool-title">CONTRACTOR COST BUILDER</div>
-      <p class="tool-desc">Build a complete project cost estimate by inputting actual quantities of materials and labor trades. Get a quote-ready total with markup and contingency.</p>
-      <ul class="tool-features">
-        <li>Materials by type — wood, concrete, metal, wiring</li>
-        <li>Labor by trade at OC prevailing wage rates</li>
-        <li>Adjustable markup (15–30%) and contingency</li>
-        <li>Low / mid / high range with confidence score</li>
-        <li>Doughnut chart cost breakdown</li>
-      </ul>
-      <span class="tool-link">Build an Estimate</span>
-    </a>
+<section class="fee-types">
+  <div class="section-tag">What's calculated</div>
+  <div class="section-title">EVERY FEE.<br>ONE PLACE.</div>
+  <p class="section-sub">We pull all applicable fees so nothing gets missed when you're estimating a project.</p>
+  <div class="fee-grid">
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Section B</div>
+      <div class="fee-card-title">Building permit fee</div>
+      <div class="fee-card-desc">Tiered by occupancy classification and square footage. Single family through commercial, new construction through tenant improvements.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Section D</div>
+      <div class="fee-card-title">Plan review fee</div>
+      <div class="fee-card-desc">90% of the building permit fee, paid at time of submittal. Includes up to 3 plan reviews — 4th and beyond billed hourly at $190/review.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Section B footnote</div>
+      <div class="fee-card-title">MEP add-ons</div>
+      <div class="fee-card-desc">Plumbing, electrical, and mechanical review each add 10% to the base permit fee when the scope includes that trade.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Section E</div>
+      <div class="fee-card-title">State & admin fees</div>
+      <div class="fee-card-desc">NPDES stormwater (10%), permit issuance ($79), automation ($40), SMIP Strong Motion, and Green Building Standards SB 1473 — all included.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Pages 8–9</div>
+      <div class="fee-card-title">Grading permit fees</div>
+      <div class="fee-card-desc">Separate grading plan check and permit fees calculated by cubic yards of material moved, from under 500 CY to over 100,000 CY.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Section C</div>
+      <div class="fee-card-title">Valuation-based fees</div>
+      <div class="fee-card-desc">For projects not in Sections A or B. Calculated from total project valuation using the ICC Building Valuation Data Table methodology.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Section A</div>
+      <div class="fee-card-title">Common permit types</div>
+      <div class="fee-card-desc">HVAC change-out, re-roof, windows, solar, pools, fences, retaining walls, patio covers, and more — flat-fee permits with exact amounts.</div>
+    </div>
+    <div class="fee-card fade-up">
+      <div class="fee-card-tag">Violation fees</div>
+      <div class="fee-card-title">Unpermitted work</div>
+      <div class="fee-card-desc">Work done without a permit triggers an investigation fee equal to 3× the normal permit fee. We flag this prominently so contractors never miss it.</div>
+    </div>
   </div>
 </section>
 
 <section class="cities-section" id="cities">
   <div class="section-tag">Coverage</div>
-  <div class="section-title">10 OC CITIES.<br>GROWING FAST.</div>
-  <p class="section-sub">We're adding verified fee schedules from every major Orange County municipality. Cities with official data are marked live.</p>
+  <div class="section-title">STARTING WITH SJC.<br>EXPANDING FAST.</div>
+  <p class="section-sub">San Juan Capistrano is live with verified July 2025 data. Every other OC city is being added from their official published fee schedules.</p>
   <div class="cities-grid">
     <div class="city-card"><div class="city-name">San Juan Capistrano</div><div class="city-status live">● Live — July 2025</div></div>
     <div class="city-card"><div class="city-name">Newport Beach</div><div class="city-status soon">Coming soon</div></div>
@@ -460,27 +248,28 @@ footer {
   </div>
 </section>
 
-<section class="disclaimer-section">
-  <div class="disclaimer-inner">
-    <div class="disclaimer-title">Important Disclaimer</div>
-    <p class="disclaimer-text">OC Build Cost provides estimates for planning purposes only. Permit fees are calculated from published municipal fee schedules and are subject to change. Material and labor costs reflect current Orange County market data and may vary based on site conditions, supplier pricing, and subcontractor availability. Estimates may carry a ±20–35% margin of error. This tool does not constitute a contractor bid or professional cost estimate. Always verify fees with the relevant Building Department and obtain three or more bids from CSLB-licensed contractors before committing to a project budget.</p>
-  </div>
+<section class="cta-section">
+  <div class="section-tag">Get started</div>
+  <div class="cta-title">STOP<br><span>GUESSING</span></div>
+  <p class="cta-sub">Calculate your exact San Juan Capistrano permit fees in under 60 seconds — free, no sign-up required.</p>
+  <a href="permit.html" class="btn-primary">Calculate Permit Fees →</a>
 </section>
 
+<div class="disclaimer-section">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-title">Important disclaimer</div>
+    <p class="disclaimer-text">OC Build Cost calculates permit fees from the official City of San Juan Capistrano Schedule of User and Regulatory Fees, effective July 1, 2025. Fees are subject to annual CPI adjustment. Additional fees may apply for planning review, engineering review, and third-party agency fees not included in this calculator. This tool is for estimation purposes only — actual fees are determined by the Building Department at time of permit submittal. Always verify with the City before submitting. Prepared by Oscar Calvo, Finance CSULB '25.</p>
+  </div>
+</div>
+
 <footer>
-  <div class="footer-logo">OC<span>Build</span>Cost</div>
-  <div class="footer-copy">© 2025 OC Build Cost — Orange County, CA &nbsp;·&nbsp; Built by Oscar Calvo, Finance CSULB '25</div>
+  <a href="index.html" class="footer-logo">OC<span>Build</span>Cost</a>
+  <div class="footer-copy">© 2025 OC Build Cost · Orange County, CA · Built by Oscar Calvo, Finance CSULB '25</div>
 </footer>
 
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 120);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
