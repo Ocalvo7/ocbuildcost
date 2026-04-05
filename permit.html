@@ -39,6 +39,18 @@ nav ul a:hover{color:var(--white);}
 .mode-btn .mb-text{display:flex;flex-direction:column;gap:4px;}
 .mode-btn .mb-title{font-size:12px;font-weight:600;color:var(--white);line-height:1.3;}
 .mode-btn .mb-sub{font-size:10px;color:var(--gray-light);line-height:1.4;}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
+.cat-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 8px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.18s;text-align:center;width:100%;}
+.cat-btn:hover{border-color:var(--orange);background:rgba(232,93,38,0.05);}
+.cat-btn.on{background:rgba(232,93,38,0.1);border-color:var(--orange);box-shadow:0 0 0 1px var(--orange);}
+.cat-btn .cat-icon{font-size:22px;line-height:1;}
+.cat-btn .cat-name{font-size:11px;font-weight:600;color:var(--white);line-height:1.3;}
+.permit-list{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.permit-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-radius:6px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.18s;}
+.permit-opt:hover{border-color:var(--orange);background:rgba(232,93,38,0.05);}
+.permit-opt.on{background:rgba(232,93,38,0.1);border-color:var(--orange);}
+.permit-opt .po-name{font-size:13px;color:var(--white);font-weight:500;}
+.permit-opt .po-price{font-size:12px;color:var(--orange);font-weight:600;white-space:nowrap;}
 .mode-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:14px;}
 .badge-a{background:rgba(232,93,38,0.12);color:var(--orange);border:1px solid var(--orange);}
 .badge-b{background:rgba(57,138,221,0.1);color:#85B7EB;border:1px solid #378ADD;}
@@ -133,73 +145,22 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <!-- ── SECTION A ── -->
   <div id="sa">
     <div class="mode-badge badge-a">Section A — pp. 10–12</div>
-    <div class="info-box">Flat-fee permits. Fees include all plan review and inspection. Additional permit processing fees apply on top.</div>
+    <div class="info-box">Flat-fee permits — all plan review and inspection included. Pick a category, then select your permit.</div>
 
-    <span class="field-label">Permit type</span>
-    <select id="a-type" onchange="onTypeChange()">
-      <optgroup label="HVAC &amp; Mechanical">
-        <option value="hvac_1">HVAC, FAU, Air Handler, or Heat Pump change-out</option>
-        <option value="hvac_add">HVAC, FAU, Air Handler, or Heat Pump — multiple units</option>
-        <option value="water_heater">Water heater change-out (residential)</option>
-      </optgroup>
-      <optgroup label="Roofing &amp; Exterior">
-        <option value="reroof">Re-roof or re-lay — residential (no calculations)</option>
-        <option value="siding">Siding / stucco — new installation or replacement</option>
-      </optgroup>
-      <optgroup label="Windows &amp; Doors">
-        <option value="windows_5">Windows / sliding glass doors — up to 5 (no size change)</option>
-        <option value="windows_over">Windows / sliding glass doors — per window over 5</option>
-      </optgroup>
-      <optgroup label="Electrical">
-        <option value="panel">Service panel upgrade (residential)</option>
-        <option value="ev">Electric vehicle charger (residential)</option>
-        <option value="generator">Generator (residential)</option>
-      </optgroup>
-      <optgroup label="Solar &amp; Battery">
-        <option value="batt_pc">Battery backup storage — plan check</option>
-        <option value="batt_pm">Battery backup storage — permit</option>
-        <option value="solar_res_pc">Residential solar PV — plan review (base ≤15kW)</option>
-        <option value="solar_res_pm">Residential solar PV — permit</option>
-        <option value="solar_com_pc">Commercial solar PV — plan review (base ≤50kW)</option>
-        <option value="solar_com_pm">Commercial solar PV — permit</option>
-      </optgroup>
-      <optgroup label="Pools &amp; Spas">
-        <option value="pool_new_pc">New pool or spa — plan review (private)</option>
-        <option value="pool_new_pm">New pool or spa — permit (private)</option>
-        <option value="pool_replaster_pc">Pool replaster w/ new flatwork — plan review</option>
-        <option value="pool_replaster_pm">Pool replaster w/ new flatwork — permit</option>
-        <option value="pool_remodel_pc">Pool remodel — plan review</option>
-        <option value="pool_remodel_pm">Pool remodel — permit</option>
-      </optgroup>
-      <optgroup label="Fences, Walls &amp; Covers">
-        <option value="fence_pc">Fence / wall requiring permit — plan review (per lin ft)</option>
-        <option value="fence_pm">Fence / wall requiring permit — permit (per lin ft)</option>
-        <option value="retaining_pc">Retaining wall — plan review (per lin ft)</option>
-        <option value="retaining_pm">Retaining wall — permit (per lin ft)</option>
-        <option value="patio_pc">Residential patio cover — plan review</option>
-        <option value="patio_pm">Residential patio cover — permit</option>
-      </optgroup>
-      <optgroup label="Outdoor &amp; Misc">
-        <option value="fireplace_pc">Exterior fireplace — plan review</option>
-        <option value="fireplace_pm">Exterior fireplace — permit</option>
-        <option value="firepit_pc">Exterior firepit / BBQ — plan review</option>
-        <option value="firepit_pm">Exterior firepit / BBQ — permit</option>
-        <option value="landscape_pc">Exterior landscape / hardscape improvements — plan review</option>
-        <option value="landscape_pm">Exterior landscape / hardscape improvements — permit</option>
-        <option value="manuf_pc">Manufactured home / accessory structure — plan review</option>
-        <option value="manuf_pm">Manufactured home / accessory structure — permit</option>
-        <option value="storage_pc">Storage racks (commercial) — plan review</option>
-        <option value="storage_pm">Storage racks (commercial) — permit</option>
-        <option value="temp_event_pc">Temporary event site / structures — plan review</option>
-        <option value="temp_event_pm">Temporary event site / structures — permit</option>
-        <option value="temp_trailer_pc">Temporary construction trailer / office — plan review</option>
-        <option value="temp_trailer_pm">Temporary construction trailer / office — permit</option>
-        <option value="temp_pwr_first">Temporary power — first / main pole or pedestal</option>
-        <option value="temp_pwr_add">Temporary power — each additional pole</option>
-        <option value="comm_misc_pc">Commercial misc structures (flagpoles, tanks, etc.) — plan review</option>
-        <option value="comm_misc_pm">Commercial misc structures — permit</option>
-      </optgroup>
-    </select>
+    <span class="field-label">Step 1 — What type of work?</span>
+    <div class="cat-grid" id="cat-grid">
+      <button class="cat-btn on" onclick="setCat('hvac',this)"><span class="cat-icon">❄️</span><span class="cat-name">HVAC &amp; Mechanical</span></button>
+      <button class="cat-btn" onclick="setCat('roof',this)"><span class="cat-icon">🏠</span><span class="cat-name">Roofing &amp; Exterior</span></button>
+      <button class="cat-btn" onclick="setCat('windows',this)"><span class="cat-icon">🪟</span><span class="cat-name">Windows &amp; Doors</span></button>
+      <button class="cat-btn" onclick="setCat('electrical',this)"><span class="cat-icon">⚡</span><span class="cat-name">Electrical</span></button>
+      <button class="cat-btn" onclick="setCat('solar',this)"><span class="cat-icon">☀️</span><span class="cat-name">Solar &amp; Battery</span></button>
+      <button class="cat-btn" onclick="setCat('pool',this)"><span class="cat-icon">🏊</span><span class="cat-name">Pools &amp; Spas</span></button>
+      <button class="cat-btn" onclick="setCat('fence',this)"><span class="cat-icon">🪵</span><span class="cat-name">Fences &amp; Walls</span></button>
+      <button class="cat-btn" onclick="setCat('outdoor',this)"><span class="cat-icon">🔨</span><span class="cat-name">Outdoor &amp; Misc</span></button>
+    </div>
+
+    <span class="field-label">Step 2 — Select your permit</span>
+    <div class="permit-list" id="permit-list"></div>
 
     <div id="a-qty-row" style="display:none;">
       <span class="field-label" id="a-qty-lbl">Quantity</span>
@@ -442,9 +403,115 @@ function setStories(s,b){
   go();
 }
 
-function onTypeChange(){
-  var k=document.getElementById('a-type').value;
-  var p=SA[k]||{};
+// Category → permit map for the visual picker
+var CATS={
+  hvac:[
+    {k:'hvac_1', name:'HVAC, FAU, Air Handler, or Heat Pump', price:'From $190'},
+    {k:'water_heater', name:'Water heater change-out', price:'$48'},
+  ],
+  roof:[
+    {k:'reroof', name:'Re-roof or re-lay (no calculations)', price:'$380'},
+    {k:'siding', name:'Siding / stucco — new or replacement', price:'$333'},
+  ],
+  windows:[
+    {k:'windows_5', name:'Windows / sliding glass doors — up to 5', price:'$380'},
+    {k:'windows_over', name:'Windows / sliding glass doors — per window over 5', price:'$38 each'},
+  ],
+  electrical:[
+    {k:'panel', name:'Service panel upgrade', price:'$71'},
+    {k:'ev', name:'Electric vehicle charger', price:'$190'},
+    {k:'generator', name:'Generator', price:'$380'},
+  ],
+  solar:[
+    {k:'batt_pc', name:'Battery backup storage — plan check', price:'$285'},
+    {k:'batt_pm', name:'Battery backup storage — permit', price:'$190'},
+    {k:'solar_res_pc', name:'Residential solar PV — plan review (≤15kW)', price:'From $200'},
+    {k:'solar_res_pm', name:'Residential solar PV — permit', price:'$250'},
+    {k:'solar_com_pc', name:'Commercial solar PV — plan review (≤50kW)', price:'From $444'},
+    {k:'solar_com_pm', name:'Commercial solar PV — permit', price:'$556'},
+  ],
+  pool:[
+    {k:'pool_new_pc', name:'New pool or spa — plan review (private)', price:'$380'},
+    {k:'pool_new_pm', name:'New pool or spa — permit (private)', price:'$380'},
+    {k:'pool_replaster_pc', name:'Pool replaster w/ new flatwork — plan review', price:'$190'},
+    {k:'pool_replaster_pm', name:'Pool replaster w/ new flatwork — permit', price:'$190'},
+    {k:'pool_remodel_pc', name:'Pool remodel — plan review', price:'$190'},
+    {k:'pool_remodel_pm', name:'Pool remodel — permit', price:'$285'},
+  ],
+  fence:[
+    {k:'fence_pc', name:'Fence / wall — plan review (per lin ft)', price:'$3/ft, $300 min'},
+    {k:'fence_pm', name:'Fence / wall — permit (per lin ft)', price:'$3/ft, $300 min'},
+    {k:'retaining_pc', name:'Retaining wall — plan review (per lin ft)', price:'$3/ft, $380 min'},
+    {k:'retaining_pm', name:'Retaining wall — permit (per lin ft)', price:'$3/ft, $380 min'},
+    {k:'patio_pc', name:'Patio cover — plan review', price:'$190'},
+    {k:'patio_pm', name:'Patio cover — permit', price:'$285'},
+  ],
+  outdoor:[
+    {k:'fireplace_pc', name:'Exterior fireplace — plan review', price:'$190'},
+    {k:'fireplace_pm', name:'Exterior fireplace — permit', price:'$285'},
+    {k:'firepit_pc', name:'Exterior firepit / BBQ — plan review', price:'$190'},
+    {k:'firepit_pm', name:'Exterior firepit / BBQ — permit', price:'$285'},
+    {k:'landscape_pc', name:'Landscape / hardscape improvements — plan review', price:'$475'},
+    {k:'landscape_pm', name:'Landscape / hardscape improvements — permit', price:'$475'},
+    {k:'manuf_pc', name:'Manufactured home / accessory structure — plan review', price:'$190'},
+    {k:'manuf_pm', name:'Manufactured home / accessory structure — permit', price:'$285'},
+    {k:'storage_pc', name:'Storage racks (commercial) — plan review', price:'$190'},
+    {k:'storage_pm', name:'Storage racks (commercial) — permit', price:'$190'},
+    {k:'temp_event_pc', name:'Temporary event site / structures — plan review', price:'$475'},
+    {k:'temp_event_pm', name:'Temporary event site / structures — permit', price:'$570'},
+    {k:'temp_trailer_pc', name:'Temporary construction trailer — plan review', price:'$285'},
+    {k:'temp_trailer_pm', name:'Temporary construction trailer — permit', price:'$285'},
+    {k:'temp_pwr_first', name:'Temporary power — first pole or pedestal', price:'$238'},
+    {k:'temp_pwr_add', name:'Temporary power — each additional pole', price:'$48'},
+    {k:'comm_misc_pc', name:'Commercial misc structures — plan review', price:'$285'},
+    {k:'comm_misc_pm', name:'Commercial misc structures — permit', price:'$380'},
+  ],
+};
+
+var currentCat='hvac', currentPermitKey='hvac_1';
+
+function setCat(cat, btn){
+  currentCat=cat;
+  document.querySelectorAll('#cat-grid .cat-btn').forEach(function(x){x.classList.remove('on');});
+  btn.classList.add('on');
+  renderPermitList();
+}
+
+function renderPermitList(){
+  var items=CATS[currentCat]||[];
+  var html=items.map(function(item){
+    var on=item.k===currentPermitKey?' on':'';
+    return '<div class="permit-opt'+on+'" onclick="selectPermit(\''+item.k+'\',this)">'+
+      '<span class="po-name">'+item.name+'</span>'+
+      '<span class="po-price">'+item.price+'</span>'+
+      '</div>';
+  }).join('');
+  document.getElementById('permit-list').innerHTML=html;
+  // Auto-select first item in new category
+  if(items.length && !items.find(function(i){return i.k===currentPermitKey;})){
+    currentPermitKey=items[0].k;
+    document.getElementById('permit-list').innerHTML=items.map(function(item){
+      var on=item.k===currentPermitKey?' on':'';
+      return '<div class="permit-opt'+on+'" onclick="selectPermit(\''+item.k+'\',this)">'+
+        '<span class="po-name">'+item.name+'</span>'+
+        '<span class="po-price">'+item.price+'</span>'+
+        '</div>';
+    }).join('');
+  }
+  updateInputs();
+  go();
+}
+
+function selectPermit(k, el){
+  currentPermitKey=k;
+  document.querySelectorAll('#permit-list .permit-opt').forEach(function(x){x.classList.remove('on');});
+  el.classList.add('on');
+  updateInputs();
+  go();
+}
+
+function updateInputs(){
+  var p=SA[currentPermitKey]||{};
   var isHvac=!!p.hvac;
   document.getElementById('a-qty-row').style.display=(p.qty&&!isHvac)?'block':'none';
   document.getElementById('a-lf-row').style.display=p.lf?'block':'none';
@@ -453,8 +520,9 @@ function onTypeChange(){
   if(p.qty)document.getElementById('a-qty-lbl').textContent=p.qtyLbl||'Quantity';
   if(p.kw)document.getElementById('a-kw-lbl').textContent=p.kwLbl||'System size (kW)';
   document.getElementById('r-solar-note').style.display=p.solar?'flex':'none';
-  go();
 }
+
+function onTypeChange(){ updateInputs(); go(); }
 
 // ── Section B helpers ───────────────────────────────────────────────────────
 function bPermit(sqft){
@@ -493,7 +561,7 @@ function go(){
   var imagingFee=imgPages*imgRate;
 
   if(mode==='a'){
-    var k=document.getElementById('a-type').value;
+    var k=currentPermitKey;
     var p=SA[k];
     if(!p)return;
 
@@ -575,7 +643,8 @@ function go(){
       var total=planFee+permitFee+stateAdmin+imagingFee;
 
       document.getElementById('r-total').textContent=fdk(total);
-      document.getElementById('r-sub').textContent=document.getElementById('a-type').options[document.getElementById('a-type').selectedIndex].text;
+      var catItem=(CATS[currentCat]||[]).find(function(i){return i.k===currentPermitKey;})||{};
+      document.getElementById('r-sub').textContent=catItem.name||currentPermitKey;
       document.getElementById('r-permit').textContent=permitFee>0?fd(permitFee):'N/A';
       document.getElementById('r-plan').textContent=planFee>0?fd(planFee):'Included';
       document.getElementById('r-mep').textContent='N/A';
@@ -659,7 +728,8 @@ function go(){
   else wb.style.display='none';
 }
 
-onTypeChange();
+renderPermitList();
+go();
 </script>
 </body>
 </html>
