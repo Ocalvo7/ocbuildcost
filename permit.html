@@ -26,37 +26,33 @@ nav ul a:hover{color:var(--white);}
 .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,88px);letter-spacing:2px;line-height:1;margin-bottom:12px;}
 .page-title span{color:var(--orange);}
 .page-sub{font-size:15px;color:var(--gray-light);line-height:1.7;max-width:600px;}
-.wrap{display:grid;grid-template-columns:390px 1fr;min-height:calc(100vh - 230px);}
-.inputs{padding:36px 40px;border-right:1px solid var(--border);background:var(--gray);}
+.wrap{display:grid;grid-template-columns:400px 1fr;min-height:calc(100vh - 230px);}
+.inputs{padding:32px 36px;border-right:1px solid var(--border);background:var(--gray);overflow-y:auto;}
 .results{padding:36px 40px;}
 .field-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-light);margin-bottom:8px;display:block;}
-.mode-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px;}
-.mode-btn{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:10px;padding:18px 12px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--border);color:var(--gray-light);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.2s;text-align:center;width:100%;}
+
+/* ── Mode selector (top-level: OTC / Section A / B / C) ── */
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.mode-btn{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 10px 14px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.2s;text-align:center;width:100%;}
 .mode-btn:hover{border-color:var(--orange);background:rgba(232,93,38,0.05);}
 .mode-btn.on{background:rgba(232,93,38,0.1);border-color:var(--orange);box-shadow:0 0 0 1px var(--orange);}
-.mode-btn .mb-icon{width:44px;height:44px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;transition:all 0.2s;}
-.mode-btn.on .mb-icon{background:var(--orange);border-color:var(--orange);}
-.mode-btn .mb-text{display:flex;flex-direction:column;gap:4px;}
+.mode-btn .mb-icon{font-size:22px;line-height:1;}
 .mode-btn .mb-title{font-size:12px;font-weight:600;color:var(--white);line-height:1.3;}
 .mode-btn .mb-sub{font-size:10px;color:var(--gray-light);line-height:1.4;}
-.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
-.cat-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:14px 8px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.18s;text-align:center;width:100%;}
-.cat-btn:hover{border-color:var(--orange);background:rgba(232,93,38,0.05);}
-.cat-btn.on{background:rgba(232,93,38,0.1);border-color:var(--orange);box-shadow:0 0 0 1px var(--orange);}
-.cat-btn .cat-icon{font-size:22px;line-height:1;}
-.cat-btn .cat-name{font-size:11px;font-weight:600;color:var(--white);line-height:1.3;}
-.permit-list{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
-.permit-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-radius:6px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.18s;}
-.permit-opt:hover{border-color:var(--orange);background:rgba(232,93,38,0.05);}
-.permit-opt.on{background:rgba(232,93,38,0.1);border-color:var(--orange);}
-.permit-opt .po-name{font-size:13px;color:var(--white);font-weight:500;}
-.permit-opt .po-price{font-size:12px;color:var(--orange);font-weight:600;white-space:nowrap;}
-.mode-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:14px;}
-.badge-a{background:rgba(232,93,38,0.12);color:var(--orange);border:1px solid var(--orange);}
-.badge-b{background:rgba(57,138,221,0.1);color:#85B7EB;border:1px solid #378ADD;}
-.badge-c{background:rgba(95,94,90,0.2);color:var(--gray-light);border:1px solid var(--border);}
-.info-box{font-size:12px;color:var(--gray-light);line-height:1.7;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:4px;padding:11px 13px;margin-bottom:16px;}
-.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+
+/* ── OTC permit cards ── */
+.otc-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:16px;}
+.otc-card{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:8px;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,0.02);font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.otc-card:hover{border-color:var(--orange);background:rgba(232,93,38,0.05);}
+.otc-card.on{background:rgba(232,93,38,0.1);border-color:var(--orange);box-shadow:0 0 0 1px var(--orange);}
+.otc-card .otc-icon{font-size:24px;line-height:1;flex-shrink:0;}
+.otc-card .otc-info{flex:1;}
+.otc-card .otc-name{font-size:13px;font-weight:600;color:var(--white);line-height:1.3;}
+.otc-card .otc-desc{font-size:11px;color:var(--gray-light);margin-top:2px;line-height:1.4;}
+.otc-card .otc-price{font-size:13px;font-weight:700;color:var(--orange);white-space:nowrap;flex-shrink:0;}
+
+/* ── Misc inputs ── */
+.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
 .pill{font-size:12px;padding:6px 13px;border-radius:3px;cursor:pointer;border:1px solid var(--border);color:var(--gray-light);background:transparent;font-family:'DM Sans',sans-serif;transition:all 0.18s;}
 .pill:hover{border-color:var(--orange);color:var(--white);}
 .pill.on{background:var(--orange);color:var(--white);border-color:var(--orange);}
@@ -66,8 +62,15 @@ select:focus,input[type=number]:focus{outline:none;border-color:var(--orange);}
 .chk-label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--gray-light);}
 .chk-label input{accent-color:var(--orange);width:14px;height:14px;}
 .divider{border:none;border-top:1px solid var(--border);margin:18px 0;}
+.info-box{font-size:12px;color:var(--gray-light);line-height:1.7;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:4px;padding:11px 13px;margin-bottom:16px;}
 .src-note{font-size:11px;color:var(--gray-light);line-height:1.8;background:rgba(232,93,38,0.05);border:1px solid rgba(232,93,38,0.18);border-radius:4px;padding:12px 14px;}
 .src-note strong{color:var(--orange);display:block;margin-bottom:4px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;}
+.mode-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:14px;}
+.badge-otc{background:rgba(232,93,38,0.15);color:var(--orange);border:1px solid var(--orange);}
+.badge-b{background:rgba(57,138,221,0.1);color:#85B7EB;border:1px solid #378ADD;}
+.badge-c{background:rgba(95,94,90,0.2);color:var(--gray-light);border:1px solid var(--border);}
+
+/* ── Results ── */
 .total-box{background:var(--gray);border:2px solid var(--orange);border-radius:6px;padding:24px 28px;margin-bottom:20px;}
 .total-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
 .total-num{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:2px;color:var(--orange);line-height:1;}
@@ -84,7 +87,7 @@ td{padding:10px 0;font-size:13px;}
 td:last-child{text-align:right;font-weight:500;}
 td.lc{color:var(--gray-light);}
 .tr td{color:var(--orange);font-weight:700;font-size:14px;border-top:1px solid var(--orange);padding-top:14px;}
-.warn-box{background:rgba(232,93,38,0.07);border:1px solid rgba(232,93,38,0.3);border-radius:4px;padding:12px 14px;font-size:12px;color:#e85d26;line-height:1.7;}
+.warn-box{background:rgba(232,93,38,0.07);border:1px solid rgba(232,93,38,0.3);border-radius:4px;padding:12px 14px;font-size:12px;color:#e85d26;line-height:1.7;margin-top:16px;}
 .wt{font-weight:600;display:block;margin-bottom:3px;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;}
 .rl{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .rl li{font-size:12px;color:var(--gray-light);line-height:1.6;display:flex;gap:8px;}
@@ -111,95 +114,248 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Permit Fee Calculator</div>
   <div class="live-badge">Official SJC data — July 1, 2025</div>
   <h1 class="page-title">PERMIT FEE<br><span>CALCULATOR</span></h1>
-  <p class="page-sub">All 27 Section A flat-fee permits plus Section B tiered fees, grading, and valuation-based permits — every number sourced directly from the official 43-page SJC fee schedule.</p>
+  <p class="page-sub">San Juan Capistrano permit fees calculated from the official Schedule of User and Regulatory Fees — every line item sourced from the 43-page published document.</p>
 </div>
 
 <div class="wrap">
 <div class="inputs">
 
-  <span class="field-label">Which section applies to your project?</span>
+  <span class="field-label">What type of permit?</span>
   <div class="mode-grid" id="mode-btns">
-    <button class="mode-btn on" onclick="setMode('a',this)">
-      <div class="mb-icon">🔧</div>
-      <div class="mb-text">
-        <span class="mb-title">Section A</span>
-        <span class="mb-sub">Common permit types — HVAC, re-roof, solar, pools & more</span>
-      </div>
+    <button class="mode-btn on" onclick="setMode('otc',this)">
+      <span class="mb-icon">🏪</span>
+      <span class="mb-title">Over the Counter</span>
+      <span class="mb-sub">Common residential permits — instant approval</span>
     </button>
     <button class="mode-btn" onclick="setMode('b',this)">
-      <div class="mb-icon">🏗️</div>
-      <div class="mb-text">
-        <span class="mb-title">Section B</span>
-        <span class="mb-sub">New construction, TI & remodels — tiered by sq ft</span>
-      </div>
+      <span class="mb-icon">🏗️</span>
+      <span class="mb-title">New Construction / Remodel</span>
+      <span class="mb-sub">Tiered by sq ft — Section B</span>
+    </button>
+    <button class="mode-btn" onclick="setMode('a',this)">
+      <span class="mb-icon">📋</span>
+      <span class="mb-title">All Other Permit Types</span>
+      <span class="mb-sub">Section A flat-fee permits</span>
     </button>
     <button class="mode-btn" onclick="setMode('c',this)">
-      <div class="mb-icon">📋</div>
-      <div class="mb-text">
-        <span class="mb-title">Section C</span>
-        <span class="mb-sub">Valuation-based — for projects not in A or B</span>
-      </div>
+      <span class="mb-icon">💰</span>
+      <span class="mb-title">Valuation-Based</span>
+      <span class="mb-sub">Section C — fee based on project value</span>
     </button>
   </div>
 
-  <!-- ── SECTION A ── -->
-  <div id="sa">
-    <div class="mode-badge badge-a">Section A — pp. 10–12</div>
-    <div class="info-box">Flat-fee permits — all plan review and inspection included. Pick a category, then select your permit.</div>
+  <!-- ══ OVER THE COUNTER ══ -->
+  <div id="s-otc">
+    <div class="mode-badge badge-otc">Over the Counter Permits — SJC</div>
+    <div class="info-box">These permits are processed over the counter — same day approval. Select your permit type below.</div>
 
-    <span class="field-label">Step 1 — What type of work?</span>
-    <div class="cat-grid" id="cat-grid">
-      <button class="cat-btn on" onclick="setCat('hvac',this)"><span class="cat-icon">❄️</span><span class="cat-name">HVAC &amp; Mechanical</span></button>
-      <button class="cat-btn" onclick="setCat('roof',this)"><span class="cat-icon">🏠</span><span class="cat-name">Roofing &amp; Exterior</span></button>
-      <button class="cat-btn" onclick="setCat('windows',this)"><span class="cat-icon">🪟</span><span class="cat-name">Windows &amp; Doors</span></button>
-      <button class="cat-btn" onclick="setCat('electrical',this)"><span class="cat-icon">⚡</span><span class="cat-name">Electrical</span></button>
-      <button class="cat-btn" onclick="setCat('solar',this)"><span class="cat-icon">☀️</span><span class="cat-name">Solar &amp; Battery</span></button>
-      <button class="cat-btn" onclick="setCat('pool',this)"><span class="cat-icon">🏊</span><span class="cat-name">Pools &amp; Spas</span></button>
-      <button class="cat-btn" onclick="setCat('fence',this)"><span class="cat-icon">🪵</span><span class="cat-name">Fences &amp; Walls</span></button>
-      <button class="cat-btn" onclick="setCat('outdoor',this)"><span class="cat-icon">🔨</span><span class="cat-name">Outdoor &amp; Misc</span></button>
+    <div class="otc-grid" id="otc-grid">
+      <div class="otc-card on" onclick="selectOTC('hvac',this)">
+        <span class="otc-icon">❄️</span>
+        <div class="otc-info">
+          <div class="otc-name">Residential HVAC</div>
+          <div class="otc-desc">AC, Furnace, Heat Pump, Ductwork, FAU, Air Handler</div>
+        </div>
+        <span class="otc-price">From $190</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('bath_kitchen',this)">
+        <span class="otc-icon">🛁</span>
+        <div class="otc-info">
+          <div class="otc-name">Bathroom / Kitchen Remodel</div>
+          <div class="otc-desc">Non-structural remodel only</div>
+        </div>
+        <span class="otc-price">See calc</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('panel',this)">
+        <span class="otc-icon">⚡</span>
+        <div class="otc-info">
+          <div class="otc-name">Main Panel Upgrade / Replacement</div>
+          <div class="otc-desc">Residential service panel</div>
+        </div>
+        <span class="otc-price">$71</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('mobile_home',this)">
+        <span class="otc-icon">🏠</span>
+        <div class="otc-info">
+          <div class="otc-name">Mobile Home</div>
+          <div class="otc-desc">Install, carport, porch, awning, or deck</div>
+        </div>
+        <span class="otc-price">See calc</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('repipe',this)">
+        <span class="otc-icon">🔧</span>
+        <div class="otc-info">
+          <div class="otc-name">Repipe / Water Heater / Sewer Cleanout</div>
+          <div class="otc-desc">Residential plumbing</div>
+        </div>
+        <span class="otc-price">From $48</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('reroof',this)">
+        <span class="otc-icon">🏡</span>
+        <div class="otc-info">
+          <div class="otc-name">Re-Roof — Residential</div>
+          <div class="otc-desc">No structural calculations required</div>
+        </div>
+        <span class="otc-price">$380</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('solar',this)">
+        <span class="otc-icon">☀️</span>
+        <div class="otc-info">
+          <div class="otc-name">Solar PV System — Residential</div>
+          <div class="otc-desc">10kW AC or less only</div>
+        </div>
+        <span class="otc-price">From $450</span>
+      </div>
+      <div class="otc-card" onclick="selectOTC('window',this)">
+        <span class="otc-icon">🪟</span>
+        <div class="otc-info">
+          <div class="otc-name">Window / Door Changeout</div>
+          <div class="otc-desc">No change in opening size</div>
+        </div>
+        <span class="otc-price">From $380</span>
+      </div>
     </div>
 
-    <span class="field-label">Step 2 — Select your permit</span>
-    <div class="permit-list" id="permit-list"></div>
-
-    <div id="a-qty-row" style="display:none;">
-      <span class="field-label" id="a-qty-lbl">Quantity</span>
-      <input type="number" id="a-qty" value="1" min="1" step="1" oninput="go()">
+    <!-- Dynamic OTC inputs -->
+    <div id="otc-hvac" class="otc-inputs">
+      <span class="field-label">Number of units (AC, furnace, heat pump, FAU, air handler)</span>
+      <input type="number" id="hvac-units" value="1" min="1" step="1" oninput="go()">
+      <span class="field-label">Building type</span>
+      <div class="pill-row">
+        <button class="pill on" id="st-res" onclick="setStories('res',this)">1–3 story residential</button>
+        <button class="pill" id="st-com" onclick="setStories('com',this)">4+ story or commercial</button>
+      </div>
+      <span class="field-label">Estimated equipment valuation ($)</span>
+      <input type="number" id="hvac-val" value="5000" min="1" step="500" oninput="go()">
+      <div class="info-box">Used for SMIP and Green Building fees. Typical HVAC change-out: $3,000–$8,000.</div>
     </div>
+
+    <div id="otc-bath_kitchen" class="otc-inputs" style="display:none;">
+      <span class="field-label">Project scope</span>
+      <div class="pill-row">
+        <button class="pill on" id="bk-bath" onclick="setBK('bath',this)">Bathroom remodel</button>
+        <button class="pill" id="bk-kit" onclick="setBK('kitchen',this)">Kitchen remodel</button>
+        <button class="pill" id="bk-both" onclick="setBK('both',this)">Both</button>
+      </div>
+      <span class="field-label">Estimated project valuation ($)</span>
+      <input type="number" id="bk-val" value="15000" min="1" step="1000" oninput="go()">
+      <div class="info-box">Non-structural remodels only. Valuation used for permit fee (Section C), SMIP, and Green Building calculation.</div>
+    </div>
+
+    <div id="otc-panel" class="otc-inputs" style="display:none;">
+      <div class="info-box">Main panel upgrade or replacement — residential. Flat fee of $71. No additional inputs needed.</div>
+    </div>
+
+    <div id="otc-mobile_home" class="otc-inputs" style="display:none;">
+      <span class="field-label">Permit type</span>
+      <div class="pill-row">
+        <button class="pill on" id="mh-pc" onclick="setMH('pc',this)">Plan review</button>
+        <button class="pill" id="mh-pm" onclick="setMH('pm',this)">Permit</button>
+      </div>
+      <span class="field-label">Estimated project valuation ($)</span>
+      <input type="number" id="mh-val" value="10000" min="1" step="1000" oninput="go()">
+    </div>
+
+    <div id="otc-repipe" class="otc-inputs" style="display:none;">
+      <span class="field-label">Work type</span>
+      <div class="pill-row">
+        <button class="pill on" id="rp-wh" onclick="setRP('wh',this)">Water heater change-out</button>
+        <button class="pill" id="rp-rp" onclick="setRP('rp',this)">Repipe / sewer cleanout</button>
+      </div>
+      <span class="field-label">Estimated project valuation ($)</span>
+      <input type="number" id="rp-val" value="3000" min="1" step="500" oninput="go()">
+    </div>
+
+    <div id="otc-reroof" class="otc-inputs" style="display:none;">
+      <div class="info-box">Residential re-roof or re-lay without structural calculations. Flat permit fee of $380.</div>
+      <span class="field-label">Estimated project valuation ($)</span>
+      <input type="number" id="rr-val" value="8000" min="1" step="500" oninput="go()">
+    </div>
+
+    <div id="otc-solar" class="otc-inputs" style="display:none;">
+      <span class="field-label">System size (kW AC) — 10kW max for OTC</span>
+      <input type="number" id="sol-kw" value="6" min="0.1" max="10" step="0.5" oninput="go()">
+      <span class="field-label">Estimated system valuation ($)</span>
+      <input type="number" id="sol-val" value="20000" min="1" step="1000" oninput="go()">
+      <div class="info-box">Residential only. 10kW AC or less. Plan review: $200 base + $15/kW over 15kW (AC). Permit: $250 flat. Fees capped per CA Gov Code 66015(a)(1).</div>
+    </div>
+
+    <div id="otc-window" class="otc-inputs" style="display:none;">
+      <span class="field-label">Number of windows / doors</span>
+      <input type="number" id="win-count" value="3" min="1" step="1" oninput="go()">
+      <div class="info-box">Retrofit or new construction type — no change in opening size. First 5: $380 flat. Each additional over 5: $38 each.</div>
+      <span class="field-label">Estimated project valuation ($)</span>
+      <input type="number" id="win-val" value="5000" min="1" step="500" oninput="go()">
+    </div>
+  </div>
+
+  <!-- ══ SECTION A (all other flat-fee permits) ══ -->
+  <div id="s-a" style="display:none;">
+    <div class="mode-badge badge-otc" style="background:rgba(232,93,38,0.08);">Section A — All flat-fee permits (pp. 10–12)</div>
+    <div class="info-box">Flat-fee permits not covered in the OTC section. All plan review and inspection included.</div>
+    <span class="field-label">Permit type</span>
+    <select id="a-type" onchange="go()">
+      <optgroup label="Pools &amp; Spas">
+        <option value="pool_new_pc">New pool or spa — plan review (private)</option>
+        <option value="pool_new_pm">New pool or spa — permit (private)</option>
+        <option value="pool_replaster_pc">Pool replaster w/ new flatwork — plan review</option>
+        <option value="pool_replaster_pm">Pool replaster w/ new flatwork — permit</option>
+        <option value="pool_remodel_pc">Pool remodel — plan review</option>
+        <option value="pool_remodel_pm">Pool remodel — permit</option>
+      </optgroup>
+      <optgroup label="Fences, Walls &amp; Covers">
+        <option value="fence_pc">Fence / wall — plan review (per lin ft, $300 min)</option>
+        <option value="fence_pm">Fence / wall — permit (per lin ft, $300 min)</option>
+        <option value="retaining_pc">Retaining wall — plan review (per lin ft, $380 min)</option>
+        <option value="retaining_pm">Retaining wall — permit (per lin ft, $380 min)</option>
+        <option value="patio_pc">Residential patio cover — plan review</option>
+        <option value="patio_pm">Residential patio cover — permit</option>
+      </optgroup>
+      <optgroup label="Outdoor &amp; Misc">
+        <option value="fireplace_pc">Exterior fireplace — plan review</option>
+        <option value="fireplace_pm">Exterior fireplace — permit</option>
+        <option value="firepit_pc">Exterior firepit / BBQ — plan review</option>
+        <option value="firepit_pm">Exterior firepit / BBQ — permit</option>
+        <option value="landscape_pc">Exterior landscape / hardscape — plan review</option>
+        <option value="landscape_pm">Exterior landscape / hardscape — permit</option>
+        <option value="ev_charger">EV charger (residential)</option>
+        <option value="generator">Generator (residential)</option>
+        <option value="batt_pc">Battery backup storage — plan check</option>
+        <option value="batt_pm">Battery backup storage — permit</option>
+        <option value="solar_com_pc">Commercial solar PV — plan review (≤50kW)</option>
+        <option value="solar_com_pm">Commercial solar PV — permit</option>
+        <option value="storage_pc">Storage racks (commercial) — plan review</option>
+        <option value="storage_pm">Storage racks (commercial) — permit</option>
+        <option value="temp_event_pc">Temp event site / structures — plan review</option>
+        <option value="temp_event_pm">Temp event site / structures — permit</option>
+        <option value="temp_trailer_pc">Temp construction trailer — plan review</option>
+        <option value="temp_trailer_pm">Temp construction trailer — permit</option>
+        <option value="temp_pwr_first">Temporary power — first pole or pedestal</option>
+        <option value="temp_pwr_add">Temporary power — each additional pole</option>
+        <option value="comm_misc_pc">Commercial misc structures — plan review</option>
+        <option value="comm_misc_pm">Commercial misc structures — permit</option>
+      </optgroup>
+    </select>
     <div id="a-lf-row" style="display:none;">
       <span class="field-label">Linear feet</span>
       <input type="number" id="a-lf" value="100" min="1" step="10" oninput="go()">
     </div>
     <div id="a-kw-row" style="display:none;">
-      <span class="field-label" id="a-kw-lbl">System size (kW)</span>
-      <input type="number" id="a-kw" value="10" min="0.1" step="0.5" oninput="go()">
+      <span class="field-label">System size (kW)</span>
+      <input type="number" id="a-kw" value="30" min="1" step="1" oninput="go()">
     </div>
-
-    <!-- HVAC-specific inputs -->
-    <div id="a-hvac-row" style="display:none;">
-      <span class="field-label">Number of units (FAUs, HVAC, air handlers, heat pumps)</span>
-      <input type="number" id="a-hvac-units" value="1" min="1" step="1" oninput="go()">
-      <span class="field-label">Building stories</span>
-      <div class="pill-row" id="hvac-story-pills" style="margin-bottom:14px;">
-        <button class="pill on" onclick="setStories('1-3',this)">1–3 stories (residential)</button>
-        <button class="pill" onclick="setStories('4+',this)">4+ stories or commercial</button>
-      </div>
-      <span class="field-label">Estimated project valuation ($) — for SMIP</span>
-      <input type="number" id="a-hvac-val" value="5000" min="1" step="500" oninput="go()">
-      <div class="info-box" style="margin-top:4px;">Valuation is the installed cost of the equipment. Used to calculate SMIP and Green Building fees. Typical HVAC change-out: $3,000–$8,000.</div>
-    </div>
+    <span class="field-label">Estimated project valuation ($)</span>
+    <input type="number" id="a-val" value="10000" min="1" step="1000" oninput="go()">
   </div>
 
-  <!-- ── SECTION B ── -->
-  <div id="sb" style="display:none;">
+  <!-- ══ SECTION B ══ -->
+  <div id="s-b" style="display:none;">
     <div class="mode-badge badge-b">Section B — pp. 13–16</div>
-
     <span class="field-label">Project type</span>
     <div class="pill-row" id="pt-pills">
       <button class="pill on" onclick="setPT('res',this)">Single family / remodel</button>
       <button class="pill" onclick="setPT('com',this)">Commercial</button>
     </div>
-
     <div id="occ-row" style="display:none;">
       <span class="field-label">Occupancy classification</span>
       <select id="occ" onchange="go()">
@@ -213,10 +369,8 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
         <option value="15">M-Mercantile — Tenant improvement</option>
       </select>
     </div>
-
     <span class="field-label">Project size (sq ft)</span>
     <input type="number" id="sqft" value="1500" min="100" step="100" oninput="go()">
-
     <span class="field-label">Scope includes (each adds 10% to permit fee)</span>
     <div class="chk-grid">
       <label class="chk-label"><input type="checkbox" id="b-plumb" onchange="go()"> Plumbing</label>
@@ -230,14 +384,12 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
     </div>
   </div>
 
-  <!-- ── SECTION C ── -->
-  <div id="sc" style="display:none;">
+  <!-- ══ SECTION C ══ -->
+  <div id="s-c" style="display:none;">
     <div class="mode-badge badge-c">Section C — p. 17</div>
-    <div class="info-box">For projects not in Section A or B. Based on total valuation per ICC Building Valuation Data Table.</div>
-
+    <div class="info-box">For projects not in OTC, Section A, or B. Based on total project valuation per ICC Building Valuation Data Table.</div>
     <span class="field-label">Total project valuation ($)</span>
     <input type="number" id="val" value="150000" min="1" step="5000" oninput="go()">
-
     <span class="field-label">Scope includes (each adds 10%)</span>
     <div class="chk-grid">
       <label class="chk-label"><input type="checkbox" id="c-plumb" onchange="go()"> Plumbing</label>
@@ -253,14 +405,15 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 
   <div class="divider"></div>
 
-  <span class="field-label">Digital imaging fee (Section E, p. 20)</span>
-  <div class="info-box" style="margin-bottom:12px;">$3 per page scanned. Front &amp; back counts as $6. Typical HVAC submittal documents: equipment specifications, CF1R energy compliance, site plan, and building permit application.</div>
-  <div class="chk-grid" style="margin-bottom:10px;">
-    <label class="chk-label"><input type="radio" name="img-type" id="img-single" value="3" checked onchange="go()"> Single-sided ($3/page)</label>
-    <label class="chk-label"><input type="radio" name="img-type" id="img-double" value="6" onchange="go()"> Front &amp; back ($6/page)</label>
+  <!-- ══ DIGITAL IMAGING (all modes) ══ -->
+  <span class="field-label">Digital imaging fee</span>
+  <div class="info-box">$3 per single-sided page scanned · $6 per front &amp; back page. Typical HVAC submittal: equipment specs, CF1R energy compliance form, site plan, building permit application.</div>
+  <div class="pill-row">
+    <button class="pill on" id="img-s-btn" onclick="setImg('single',this)">Single-sided — $3/page</button>
+    <button class="pill" id="img-d-btn" onclick="setImg('double',this)">Front &amp; back — $6/page</button>
   </div>
   <span class="field-label">Number of pages submitted for scanning</span>
-  <input type="number" id="img-pages" value="0" min="0" step="1" oninput="go()" style="margin-bottom:8px;">
+  <input type="number" id="img-pages" value="0" min="0" step="1" oninput="go()">
 
   <div class="divider"></div>
   <div class="src-note">
@@ -268,13 +421,12 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
     City of San Juan Capistrano<br>
     Schedule of User &amp; Regulatory Fees<br>
     Effective July 1, 2025 · 43 pages<br>
-    Sec. A: pp. 10–12 · Sec. B: pp. 13–16<br>
-    Sec. C: p. 17 · Grading: pp. 8–9<br>
-    Digital Imaging: Sec. E, p. 20
+    OTC / Sec. A: pp. 10–12 · Sec. B: pp. 13–16<br>
+    Sec. C: p. 17 · Grading: pp. 8–9 · Imaging: p. 20
   </div>
 </div>
 
-<!-- ── RESULTS ── -->
+<!-- ══ RESULTS PANEL ══ -->
 <div class="results">
   <div class="total-box">
     <div class="total-label">Total permit cost — City of San Juan Capistrano</div>
@@ -285,19 +437,19 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="metrics">
     <div class="metric"><div class="metric-label">Permit fee</div><div class="metric-val" id="r-permit">—</div></div>
     <div class="metric"><div class="metric-label">Plan review</div><div class="metric-val" id="r-plan">—</div></div>
-    <div class="metric"><div class="metric-label">MEP add-ons</div><div class="metric-val" id="r-mep">—</div></div>
+    <div class="metric"><div class="metric-label">NPDES (10%)</div><div class="metric-val" id="r-npdes">—</div></div>
     <div class="metric"><div class="metric-label">State &amp; admin fees</div><div class="metric-val" id="r-state">—</div></div>
   </div>
 
   <div class="sh">Full Fee Breakdown</div>
-  <table><tbody id="r-rows"><tr><td class="lc">Select a permit type on the left to see the full breakdown.</td><td></td></tr></tbody></table>
+  <table><tbody id="r-rows"><tr><td class="lc">Select a permit type on the left to calculate.</td><td></td></tr></tbody></table>
 
   <div id="r-grade" style="display:none;margin-top:24px;">
     <div class="sh">Grading Fees (Submitted Separately)</div>
     <table><tbody id="r-grade-rows"></tbody></table>
   </div>
 
-  <div id="r-warn" class="warn-box" style="display:none;margin-top:18px;"></div>
+  <div id="r-warn" class="warn-box" style="display:none;"></div>
 
   <div style="margin-top:28px;">
     <div class="sh">Key Reminders</div>
@@ -305,13 +457,13 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
       <li>Fees include up to 3 plan reviews. 4th submittal onward: $190 per review.</li>
       <li>Re-inspection fee (3rd time or more, same issue): $190 each.</li>
       <li>After-hours inspection: $228/hr, 4-hour minimum.</li>
-      <li>Work done without a permit: investigation fee = permit fee × 3, in addition to all applicable permit fees.</li>
+      <li>Work done without a permit: investigation fee = permit fee × 3, in addition to all permit fees.</li>
       <li>Permit extension: $79. Permit reissuance: $79. Temporary Certificate of Occupancy: $570.</li>
       <li id="r-solar-note" style="display:none;">Solar permits: total fees shall not exceed amounts in CA Government Code 66015(a)(1). City will not collect additional permit processing fees beyond amounts shown.</li>
     </ul>
   </div>
 
-  <p class="disc">Fees calculated per City of San Juan Capistrano Schedule of User and Regulatory Fees, effective July 1, 2025. Fees marked "Y'rly CPI" adjust annually with CPI. Additional fees may apply for planning review, engineering review, FEMA flood plain review, and other agency fees not included here. Actual fees are determined by the Building Department at time of permit submittal. Always confirm with the City before submitting.</p>
+  <p class="disc">Fees calculated per City of San Juan Capistrano Schedule of User and Regulatory Fees, effective July 1, 2025. Fees marked "Y'rly CPI" adjust annually with CPI. Additional fees may apply for planning review, engineering review, FEMA flood plain review, and other agency fees. Actual fees are determined by the Building Department at time of permit submittal. Always confirm with the City before submitting.</p>
 </div>
 </div>
 
@@ -321,210 +473,20 @@ footer{padding:28px 48px;border-top:1px solid var(--border);display:flex;justify
 </footer>
 
 <script>
-var mode='a', projType='res';
-
-// ── Section A permit data — all 27 types from pages 10–12 ──────────────────
-var SA={
-  hvac_1:          {pc:0, pm:0, hvac:true, note:'Includes FAUs, HVAC systems, air handlers, and heat pumps. First unit: $190. Each additional unit (FAU, HVAC, air handler, heat pump): $90 each.'},
-  hvac_add:        {pc:0, pm:0, hvac:true, note:'Use this for additional units only. Each additional FAU, HVAC, air handler, or heat pump is $90.'},
-  water_heater:    {pc:0,   pm:48,  note:'Residential water heater change-out. Fee includes plan review and inspection.'},
-  reroof:          {pc:0,   pm:380, note:'Residential re-roof or re-lay without structural calculations.'},
-  siding:          {pc:0,   pm:333, note:'Residential siding or stucco new installation or replacement.'},
-  windows_5:       {pc:0,   pm:380, note:'Up to 5 windows or sliding glass doors. Retrofit or new construction type, no change in opening size.'},
-  windows_over:    {pc:0,   pm:38,  qty:true, qtyLbl:'Number of windows over 5', note:'Per window or door beyond the first 5. The first 5 are $380 total (use the "up to 5" permit).'},
-  panel:           {pc:0,   pm:71,  note:'Residential service panel upgrade.'},
-  ev:              {pc:0,   pm:190, note:'Residential electric vehicle charger installation.'},
-  generator:       {pc:0,   pm:380, note:'Residential generator.'},
-  batt_pc:         {pc:285, pm:0,   note:'Battery backup storage plan check only. Permit fee is $190 (separate line item).'},
-  batt_pm:         {pc:0,   pm:190, note:'Battery backup storage permit only. Plan check fee is $285 (separate line item).'},
-  solar_res_pc:    {pc:200, pm:0,   kw:true, kwLbl:'System size (kW)', kwBase:15, kwRate:15, solar:true, note:'Base fee for 15kW or less. $15 per additional kW above 15kW. Fees capped per CA Gov Code 66015(a)(1).'},
-  solar_res_pm:    {pc:0,   pm:250, solar:true, note:'Residential solar PV permit. Fees capped per CA Gov Code 66015(a)(1).'},
-  solar_com_pc:    {pc:444, pm:0,   kw:true, kwLbl:'System size (kW)', kwBase:50, kwRate:7, kwRate2:5, kwThresh:250, solar:true, note:'Base fee for 50kW or less. $7/kW from 51–250kW; $5/kW above 250kW.'},
-  solar_com_pm:    {pc:0,   pm:556, solar:true, note:'Commercial solar PV permit. Fees capped per CA Gov Code 66015(a)(1).'},
-  pool_new_pc:     {pc:380, pm:0,   note:'Private pool or spa plan review. Public pool plan review: $475.'},
-  pool_new_pm:     {pc:0,   pm:380, note:'Private pool or spa permit. Public pool permit: $475.'},
-  pool_replaster_pc:{pc:190,pm:0,   note:'Pool replaster with new flatwork or coping and/or equipment change-out.'},
-  pool_replaster_pm:{pc:0,  pm:190, note:'Pool replaster with new flatwork or coping and/or equipment change-out.'},
-  pool_remodel_pc: {pc:190, pm:0,   note:'Pool remodel — changing shape, increasing/decreasing area, adding Baja bench, etc.'},
-  pool_remodel_pm: {pc:0,   pm:285, note:'Pool remodel — changing shape, increasing/decreasing area, adding Baja bench, etc.'},
-  fence_pc:        {pc:3,   pm:0,   lf:true, lfMin:300, note:'$3 per linear foot, $300 minimum. For fences and walls requiring a building permit.'},
-  fence_pm:        {pc:0,   pm:3,   lf:true, lfMin:300, note:'$3 per linear foot, $300 minimum. For fences and walls requiring a building permit.'},
-  retaining_pc:    {pc:3,   pm:0,   lf:true, lfMin:380, note:'$3 per linear foot, $380 minimum.'},
-  retaining_pm:    {pc:0,   pm:3,   lf:true, lfMin:380, note:'$3 per linear foot, $380 minimum.'},
-  patio_pc:        {pc:190, pm:0,   note:'Residential patio covers.'},
-  patio_pm:        {pc:0,   pm:285, note:'Residential patio covers.'},
-  fireplace_pc:    {pc:190, pm:0,   note:'Exterior residential fireplace.'},
-  fireplace_pm:    {pc:0,   pm:285, note:'Exterior residential fireplace.'},
-  firepit_pc:      {pc:190, pm:0,   note:'Exterior firepit or BBQ.'},
-  firepit_pm:      {pc:0,   pm:285, note:'Exterior firepit or BBQ.'},
-  landscape_pc:    {pc:475, pm:0,   note:'Includes patio cover, fire features, water features, BBQ, etc.'},
-  landscape_pm:    {pc:0,   pm:475, note:'Includes patio cover, fire features, water features, BBQ, etc.'},
-  manuf_pc:        {pc:190, pm:0,   note:'Manufactured homes or accessory structures to manufactured homes.'},
-  manuf_pm:        {pc:0,   pm:285, note:'Manufactured homes or accessory structures to manufactured homes.'},
-  storage_pc:      {pc:190, pm:0,   note:'Commercial storage racks.'},
-  storage_pm:      {pc:0,   pm:190, note:'Commercial storage racks.'},
-  temp_event_pc:   {pc:475, pm:0,   note:'Temporary event sites or structures, excluding generators.'},
-  temp_event_pm:   {pc:0,   pm:570, note:'Temporary event sites or structures, excluding generators.'},
-  temp_trailer_pc: {pc:285, pm:0,   note:'Temporary construction trailers or offices.'},
-  temp_trailer_pm: {pc:0,   pm:285, note:'Temporary construction trailers or offices.'},
-  temp_pwr_first:  {pc:0,   pm:238, note:'First or main power distribution pole or pedestal.'},
-  temp_pwr_add:    {pc:0,   pm:48,  note:'Each additional pole or pedestal on the same system, for distributions.'},
-  comm_misc_pc:    {pc:285, pm:0,   note:'Flag poles, spray booths, above-ground storage tanks, equipment foundations, fountain structures, etc. Per each type of structure or element.'},
-  comm_misc_pm:    {pc:0,   pm:380, note:'Flag poles, spray booths, above-ground storage tanks, equipment foundations, fountain structures, etc.'},
-};
+var mode='otc', projType='res', hvacStories='res', bkScope='bath', mhType='pc', rpType='wh', imgType='single', currentOTC='hvac';
 
 function fd(n){return '$'+Math.round(n).toLocaleString('en-US');}
 function fdk(n){return n>=1e6?'$'+(n/1e6).toFixed(2)+'M':n>=1000?'$'+(n/1000).toFixed(1)+'K':fd(n);}
 function tr(l,v,tot){return '<tr class="'+(tot?'tr':'')+'"><td class="lc">'+l+'</td><td>'+v+'</td></tr>';}
 
-function setMode(m,b){
-  mode=m;
-  document.querySelectorAll('#mode-btns .mode-btn').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on');
-  document.getElementById('sa').style.display=m==='a'?'block':'none';
-  document.getElementById('sb').style.display=m==='b'?'block':'none';
-  document.getElementById('sc').style.display=m==='c'?'block':'none';
-  go();
+function smipFee(v,res){return Math.max(0.50,v*(res?0.00013:0.00028));}
+function greenFee(v){if(v<=25000)return 1;if(v<=50000)return 2;if(v<=75000)return 3;if(v<=100000)return 4;return 4+Math.ceil((v-100000)/25000);}
+function valFee(v){
+  if(v<=2000)return 190;if(v<=25000)return 190+Math.ceil((v-2000)/1000)*8.26;
+  if(v<=50000)return 380+Math.ceil((v-25000)/1000)*15.2;if(v<=100000)return 760+Math.ceil((v-50000)/1000)*15.2;
+  if(v<=500000)return 1520+Math.ceil((v-100000)/1000)*7.6;if(v<=1000000)return 4560+Math.ceil((v-500000)/1000)*9.12;
+  return 9120+Math.ceil((v-1000000)/1000)*6.84;
 }
-
-function setPT(t,b){
-  projType=t;
-  document.querySelectorAll('#pt-pills .pill').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on');
-  document.getElementById('occ-row').style.display=t==='com'?'block':'none';
-  go();
-}
-
-var hvacStories='1-3';
-function setStories(s,b){
-  hvacStories=s;
-  document.querySelectorAll('#hvac-story-pills .pill').forEach(function(x){x.classList.remove('on');});
-  b.classList.add('on');
-  go();
-}
-
-// Category → permit map for the visual picker
-var CATS={
-  hvac:[
-    {k:'hvac_1', name:'HVAC, FAU, Air Handler, or Heat Pump', price:'From $190'},
-    {k:'water_heater', name:'Water heater change-out', price:'$48'},
-  ],
-  roof:[
-    {k:'reroof', name:'Re-roof or re-lay (no calculations)', price:'$380'},
-    {k:'siding', name:'Siding / stucco — new or replacement', price:'$333'},
-  ],
-  windows:[
-    {k:'windows_5', name:'Windows / sliding glass doors — up to 5', price:'$380'},
-    {k:'windows_over', name:'Windows / sliding glass doors — per window over 5', price:'$38 each'},
-  ],
-  electrical:[
-    {k:'panel', name:'Service panel upgrade', price:'$71'},
-    {k:'ev', name:'Electric vehicle charger', price:'$190'},
-    {k:'generator', name:'Generator', price:'$380'},
-  ],
-  solar:[
-    {k:'batt_pc', name:'Battery backup storage — plan check', price:'$285'},
-    {k:'batt_pm', name:'Battery backup storage — permit', price:'$190'},
-    {k:'solar_res_pc', name:'Residential solar PV — plan review (≤15kW)', price:'From $200'},
-    {k:'solar_res_pm', name:'Residential solar PV — permit', price:'$250'},
-    {k:'solar_com_pc', name:'Commercial solar PV — plan review (≤50kW)', price:'From $444'},
-    {k:'solar_com_pm', name:'Commercial solar PV — permit', price:'$556'},
-  ],
-  pool:[
-    {k:'pool_new_pc', name:'New pool or spa — plan review (private)', price:'$380'},
-    {k:'pool_new_pm', name:'New pool or spa — permit (private)', price:'$380'},
-    {k:'pool_replaster_pc', name:'Pool replaster w/ new flatwork — plan review', price:'$190'},
-    {k:'pool_replaster_pm', name:'Pool replaster w/ new flatwork — permit', price:'$190'},
-    {k:'pool_remodel_pc', name:'Pool remodel — plan review', price:'$190'},
-    {k:'pool_remodel_pm', name:'Pool remodel — permit', price:'$285'},
-  ],
-  fence:[
-    {k:'fence_pc', name:'Fence / wall — plan review (per lin ft)', price:'$3/ft, $300 min'},
-    {k:'fence_pm', name:'Fence / wall — permit (per lin ft)', price:'$3/ft, $300 min'},
-    {k:'retaining_pc', name:'Retaining wall — plan review (per lin ft)', price:'$3/ft, $380 min'},
-    {k:'retaining_pm', name:'Retaining wall — permit (per lin ft)', price:'$3/ft, $380 min'},
-    {k:'patio_pc', name:'Patio cover — plan review', price:'$190'},
-    {k:'patio_pm', name:'Patio cover — permit', price:'$285'},
-  ],
-  outdoor:[
-    {k:'fireplace_pc', name:'Exterior fireplace — plan review', price:'$190'},
-    {k:'fireplace_pm', name:'Exterior fireplace — permit', price:'$285'},
-    {k:'firepit_pc', name:'Exterior firepit / BBQ — plan review', price:'$190'},
-    {k:'firepit_pm', name:'Exterior firepit / BBQ — permit', price:'$285'},
-    {k:'landscape_pc', name:'Landscape / hardscape improvements — plan review', price:'$475'},
-    {k:'landscape_pm', name:'Landscape / hardscape improvements — permit', price:'$475'},
-    {k:'manuf_pc', name:'Manufactured home / accessory structure — plan review', price:'$190'},
-    {k:'manuf_pm', name:'Manufactured home / accessory structure — permit', price:'$285'},
-    {k:'storage_pc', name:'Storage racks (commercial) — plan review', price:'$190'},
-    {k:'storage_pm', name:'Storage racks (commercial) — permit', price:'$190'},
-    {k:'temp_event_pc', name:'Temporary event site / structures — plan review', price:'$475'},
-    {k:'temp_event_pm', name:'Temporary event site / structures — permit', price:'$570'},
-    {k:'temp_trailer_pc', name:'Temporary construction trailer — plan review', price:'$285'},
-    {k:'temp_trailer_pm', name:'Temporary construction trailer — permit', price:'$285'},
-    {k:'temp_pwr_first', name:'Temporary power — first pole or pedestal', price:'$238'},
-    {k:'temp_pwr_add', name:'Temporary power — each additional pole', price:'$48'},
-    {k:'comm_misc_pc', name:'Commercial misc structures — plan review', price:'$285'},
-    {k:'comm_misc_pm', name:'Commercial misc structures — permit', price:'$380'},
-  ],
-};
-
-var currentCat='hvac', currentPermitKey='hvac_1';
-
-function setCat(cat, btn){
-  currentCat=cat;
-  document.querySelectorAll('#cat-grid .cat-btn').forEach(function(x){x.classList.remove('on');});
-  btn.classList.add('on');
-  renderPermitList();
-}
-
-function renderPermitList(){
-  var items=CATS[currentCat]||[];
-  var html=items.map(function(item){
-    var on=item.k===currentPermitKey?' on':'';
-    return '<div class="permit-opt'+on+'" onclick="selectPermit(\''+item.k+'\',this)">'+
-      '<span class="po-name">'+item.name+'</span>'+
-      '<span class="po-price">'+item.price+'</span>'+
-      '</div>';
-  }).join('');
-  document.getElementById('permit-list').innerHTML=html;
-  // Auto-select first item in new category
-  if(items.length && !items.find(function(i){return i.k===currentPermitKey;})){
-    currentPermitKey=items[0].k;
-    document.getElementById('permit-list').innerHTML=items.map(function(item){
-      var on=item.k===currentPermitKey?' on':'';
-      return '<div class="permit-opt'+on+'" onclick="selectPermit(\''+item.k+'\',this)">'+
-        '<span class="po-name">'+item.name+'</span>'+
-        '<span class="po-price">'+item.price+'</span>'+
-        '</div>';
-    }).join('');
-  }
-  updateInputs();
-  go();
-}
-
-function selectPermit(k, el){
-  currentPermitKey=k;
-  document.querySelectorAll('#permit-list .permit-opt').forEach(function(x){x.classList.remove('on');});
-  el.classList.add('on');
-  updateInputs();
-  go();
-}
-
-function updateInputs(){
-  var p=SA[currentPermitKey]||{};
-  var isHvac=!!p.hvac;
-  document.getElementById('a-qty-row').style.display=(p.qty&&!isHvac)?'block':'none';
-  document.getElementById('a-lf-row').style.display=p.lf?'block':'none';
-  document.getElementById('a-kw-row').style.display=p.kw?'block':'none';
-  document.getElementById('a-hvac-row').style.display=isHvac?'block':'none';
-  if(p.qty)document.getElementById('a-qty-lbl').textContent=p.qtyLbl||'Quantity';
-  if(p.kw)document.getElementById('a-kw-lbl').textContent=p.kwLbl||'System size (kW)';
-  document.getElementById('r-solar-note').style.display=p.solar?'flex':'none';
-}
-
-function onTypeChange(){ updateInputs(); go(); }
-
-// ── Section B helpers ───────────────────────────────────────────────────────
 function bPermit(sqft){
   if(sqft<=100)return 380;
   var T=[{m:100,b:380,p:0},{m:200,b:570,p:190},{m:300,b:760,p:380},{m:400,b:1140,p:380},{m:500,b:1520,p:152},{m:1000,b:2280,p:152},{m:1500,b:3040,p:228},{m:2000,b:4180,p:304},{m:2500,b:5700,p:304},{m:3000,b:7220,p:152},{m:4000,b:8740,p:190},{m:5000,b:10640,p:123.5}];
@@ -539,133 +501,292 @@ function cPermit(sqft,occ){
   for(var i=0;i<tbl.length-1;i++){if(sqft<=tbl[i+1].s)return tbl[i].b+Math.ceil((sqft-tbl[i].s)/100)*tbl[i+1].p;}
   var l=tbl[tbl.length-1];return l.b+Math.ceil((sqft-l.s)/100)*l.p;
 }
-function valFee(v){
-  if(v<=2000)return 190;if(v<=25000)return 190+Math.ceil((v-2000)/1000)*8.26;if(v<=50000)return 380+Math.ceil((v-25000)/1000)*15.2;if(v<=100000)return 760+Math.ceil((v-50000)/1000)*15.2;if(v<=500000)return 1520+Math.ceil((v-100000)/1000)*7.6;if(v<=1000000)return 4560+Math.ceil((v-500000)/1000)*9.12;return 9120+Math.ceil((v-1000000)/1000)*6.84;
-}
 function grading(cy){
   var pc,pm;
   if(cy<=500){pc=936;pm=760;}else if(cy<=5000){pc=936+Math.ceil((cy-500)/500)*520;pm=760+Math.ceil((cy-500)/500)*422;}else if(cy<=100000){pc=5616+Math.ceil((cy-5000)/1000)*217;pm=4560+Math.ceil((cy-5000)/1000)*96;}else{pc=26208+Math.ceil((cy-100000)/10000)*234;pm=13680+Math.ceil((cy-100000)/10000)*380;}
   return{pc,pm,iss:98,total:pc+pm+98};
 }
-function smip(v,res){return Math.max(0.50,v*(res?0.00013:0.00028));}
-function green(v){if(v<=25000)return 1;if(v<=50000)return 2;if(v<=75000)return 3;if(v<=100000)return 4;return 4+Math.ceil((v-100000)/25000);}
 
-// ── Main go() ───────────────────────────────────────────────────────────────
+// Section A flat fee lookup
+var SA={
+  pool_new_pc:{pc:380,pm:0},pool_new_pm:{pc:0,pm:380},pool_replaster_pc:{pc:190,pm:0},pool_replaster_pm:{pc:0,pm:190},
+  pool_remodel_pc:{pc:190,pm:0},pool_remodel_pm:{pc:0,pm:285},
+  fence_pc:{pc:3,pm:0,lf:true,lfMin:300},fence_pm:{pc:0,pm:3,lf:true,lfMin:300},
+  retaining_pc:{pc:3,pm:0,lf:true,lfMin:380},retaining_pm:{pc:0,pm:3,lf:true,lfMin:380},
+  patio_pc:{pc:190,pm:0},patio_pm:{pc:0,pm:285},
+  fireplace_pc:{pc:190,pm:0},fireplace_pm:{pc:0,pm:285},
+  firepit_pc:{pc:190,pm:0},firepit_pm:{pc:0,pm:285},
+  landscape_pc:{pc:475,pm:0},landscape_pm:{pc:0,pm:475},
+  ev_charger:{pc:0,pm:190},generator:{pc:0,pm:380},
+  batt_pc:{pc:285,pm:0},batt_pm:{pc:0,pm:190},
+  solar_com_pc:{pc:444,pm:0,kw:true,kwBase:50,kwRate:7,kwRate2:5,kwThresh:250,solar:true},
+  solar_com_pm:{pc:0,pm:556,solar:true},
+  storage_pc:{pc:190,pm:0},storage_pm:{pc:0,pm:190},
+  temp_event_pc:{pc:475,pm:0},temp_event_pm:{pc:0,pm:570},
+  temp_trailer_pc:{pc:285,pm:0},temp_trailer_pm:{pc:0,pm:285},
+  temp_pwr_first:{pc:0,pm:238},temp_pwr_add:{pc:0,pm:48},
+  comm_misc_pc:{pc:285,pm:0},comm_misc_pm:{pc:0,pm:380},
+};
+
+function setMode(m,b){
+  mode=m;
+  document.querySelectorAll('#mode-btns .mode-btn').forEach(function(x){x.classList.remove('on');});
+  b.classList.add('on');
+  document.getElementById('s-otc').style.display=m==='otc'?'block':'none';
+  document.getElementById('s-a').style.display=m==='a'?'block':'none';
+  document.getElementById('s-b').style.display=m==='b'?'block':'none';
+  document.getElementById('s-c').style.display=m==='c'?'block':'none';
+  go();
+}
+
+function selectOTC(key,el){
+  currentOTC=key;
+  document.querySelectorAll('.otc-card').forEach(function(x){x.classList.remove('on');});
+  el.classList.add('on');
+  document.querySelectorAll('.otc-inputs').forEach(function(x){x.style.display='none';});
+  document.getElementById('otc-'+key).style.display='block';
+  document.getElementById('r-solar-note').style.display=key==='solar'?'flex':'none';
+  go();
+}
+
+function setStories(s,b){hvacStories=s;document.querySelectorAll('#otc-hvac .pill').forEach(function(x){x.classList.remove('on');});b.classList.add('on');go();}
+function setBK(s,b){bkScope=s;document.querySelectorAll('#otc-bath_kitchen .pill').forEach(function(x){x.classList.remove('on');});b.classList.add('on');go();}
+function setMH(s,b){mhType=s;document.querySelectorAll('#otc-mobile_home .pill').forEach(function(x){x.classList.remove('on');});b.classList.add('on');go();}
+function setRP(s,b){rpType=s;document.querySelectorAll('#otc-repipe .pill').forEach(function(x){x.classList.remove('on');});b.classList.add('on');go();}
+function setImg(s,b){imgType=s;document.querySelectorAll('#img-s-btn,#img-d-btn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');go();}
+function setPT(t,b){projType=t;document.querySelectorAll('#pt-pills .pill').forEach(function(x){x.classList.remove('on');});b.classList.add('on');document.getElementById('occ-row').style.display=t==='com'?'block':'none';go();}
+
+function buildStdRows(pf,planFee,npdes,smip,green,iss,auto,imaging,imgPages,imgRate,extra){
+  var rows=[];
+  if(planFee>0)rows.push(tr('Plan review fee',fd(planFee)));
+  if(pf>0)rows.push(tr('Permit fee',fd(pf)));
+  rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+  rows.push(tr('Permit issuance fee',fd(iss)));
+  rows.push(tr('Automation fee',fd(auto)));
+  rows.push(tr('SMIP — Strong Motion Instrumentation',fd(smip)));
+  rows.push(tr('Green Building Standards SB 1473',fd(green)));
+  if(extra)extra.forEach(function(e){rows.push(tr(e.l,fd(e.v)));});
+  if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+  return rows;
+}
+
 function go(){
-  var rows=[], warns=[];
-  var iss=79, auto=40;
-
-  // Digital imaging fee — applies to all permit types
+  var rows=[], warns=[], iss=79, auto=40;
   var imgPages=parseInt(document.getElementById('img-pages').value)||0;
-  var imgRate=document.getElementById('img-double').checked?6:3;
-  var imagingFee=imgPages*imgRate;
+  var imgRate=imgType==='double'?6:3;
+  var imaging=imgPages*imgRate;
 
-  if(mode==='a'){
-    var k=currentPermitKey;
-    var p=SA[k];
-    if(!p)return;
+  if(mode==='otc'){
+    var isRes=(hvacStories==='res');
 
-    var planFee=p.pc, permitFee=p.pm;
-    var hvacLines=[];
-
-    // ── HVAC special case — accurate fee structure ──────────────────────────
-    if(p.hvac){
-      var units=parseInt(document.getElementById('a-hvac-units').value)||1;
-      var hvacVal=parseFloat(document.getElementById('a-hvac-val').value)||5000;
-      var isRes13=hvacStories==='1-3';
-
-      // Base permit fee: $190 first unit + $90 each additional
-      permitFee=190+Math.max(0,units-1)*90;
-      planFee=0; // Section A HVAC has no separate plan review line
-
-      // SMIP: whichever is greater — $0.50 or valuation × rate
-      var smipRate=isRes13?0.00013:0.00028;
-      var smipFee=Math.max(0.50, hvacVal*smipRate);
-
-      // Green Building SB 1473 based on valuation
-      var greenFee;
-      if(hvacVal<=25000)greenFee=1;
-      else if(hvacVal<=50000)greenFee=2;
-      else if(hvacVal<=75000)greenFee=3;
-      else if(hvacVal<=100000)greenFee=4;
-      else greenFee=4+Math.ceil((hvacVal-100000)/25000);
-
-      var npdes=permitFee*0.10; // NPDES = 10% of permit fee (no separate plan review for Section A HVAC)
-      var stateAdmin=npdes+iss+auto+smipFee+greenFee;
-      var total=permitFee+stateAdmin+imagingFee;
-
+    if(currentOTC==='hvac'){
+      var units=Math.max(1,parseInt(document.getElementById('hvac-units').value)||1);
+      var hval=Math.max(1,parseFloat(document.getElementById('hvac-val').value)||5000);
+      var pf=190+Math.max(0,units-1)*90;
+      var npdes=pf*0.10;
+      var smip=smipFee(hval,isRes), green=greenFee(hval);
+      var total=pf+npdes+iss+auto+smip+green+imaging;
       document.getElementById('r-total').textContent=fdk(total);
-      document.getElementById('r-sub').textContent=units+' unit'+(units!==1?'s':'')+' — '+(isRes13?'Residential 1–3 story':'4+ story / commercial');
-      document.getElementById('r-permit').textContent=fd(permitFee);
+      document.getElementById('r-sub').textContent='HVAC — '+units+' unit'+(units>1?'s':'')+' · '+(isRes?'Res. 1–3 story':'4+ story / commercial');
+      document.getElementById('r-permit').textContent=fd(pf);
       document.getElementById('r-plan').textContent='Included';
-      document.getElementById('r-mep').textContent='N/A';
-      document.getElementById('r-state').textContent=fd(stateAdmin+(imagingFee>0?imagingFee:0));
-
-      rows.push(tr('HVAC permit fee — 1st unit',fd(190)));
-      if(units>1)rows.push(tr('HVAC permit fee — '+(units-1)+' additional unit'+(units-1!==1?'s':'')+' × $90',fd((units-1)*90)));
-      rows.push(tr('NPDES stormwater fee — 10% of permit fee',fd(npdes)));
-      rows.push(tr('Permit issuance fee (Section E)',fd(iss)));
-      rows.push(tr('Automation fee (Section E)',fd(auto)));
-      rows.push(tr('SMIP — Strong Motion Instrumentation ('+( isRes13?'res. 1–3 story':'4+ story/commercial')+')',fd(smipFee)));
-      rows.push(tr('Green Building Standards SB 1473 (valuation $'+hvacVal.toLocaleString()+')',fd(greenFee)));
-      if(imagingFee>0)rows.push(tr('Digital imaging fee — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imagingFee)));
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      rows.push(tr('HVAC permit — 1st unit (AC/furnace/heat pump/FAU/air handler)',fd(190)));
+      if(units>1)rows.push(tr('Additional units × '+( units-1)+' @ $90 each',fd((units-1)*90)));
+      rows.push(tr('NPDES stormwater fee (10% of permit)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP — '+(isRes?'residential 1–3 story':'4+ story / commercial'),fd(smip)));
+      rows.push(tr('Green Building Standards SB 1473',fd(green)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
       rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+      warns.push('Covers FAUs, HVAC systems, air handlers, and heat pumps. First unit $190 — each additional unit on the same permit: $90.');
 
-      warns.push('Covers FAUs, HVAC systems, air handlers, and heat pumps. First unit $190 — each additional unit (same permit) $90.');
-      warns.push('SMIP calculated on project valuation ($'+hvacVal.toLocaleString()+'). Update valuation for accurate SMIP and Green Building fees.');
-      document.getElementById('r-grade').style.display='none';
-
-    } else {
-      // ── All other Section A permit types ───────────────────────────────────
-      if(p.qty){var q=parseInt(document.getElementById('a-qty').value)||1;planFee*=q;permitFee*=q;}
-      if(p.lf){
-        var lf=parseInt(document.getElementById('a-lf').value)||100;
-        if(p.pc>0)planFee=Math.max(p.lfMin||0,p.pc*lf);
-        if(p.pm>0)permitFee=Math.max(p.lfMin||0,p.pm*lf);
-      }
-      if(p.kw){
-        var kw=parseFloat(document.getElementById('a-kw').value)||10;
-        if(p.pc>0){
-          planFee=p.pc;
-          if(kw>p.kwBase){
-            var over=kw-p.kwBase;
-            if(p.kwRate2&&p.kwThresh){
-              var mid=Math.min(over,p.kwThresh-p.kwBase), top=Math.max(0,over-(p.kwThresh-p.kwBase));
-              planFee+=mid*p.kwRate+top*p.kwRate2;
-            } else planFee+=over*p.kwRate;
-          }
-        }
-      }
-
-      var npdes=(planFee+permitFee)*0.10;
-      var smipFee=0.50, greenFee=1;
-      var stateAdmin=npdes+iss+auto+smipFee+greenFee;
-      var total=planFee+permitFee+stateAdmin+imagingFee;
-
+    } else if(currentOTC==='bath_kitchen'){
+      var bkval=Math.max(1,parseFloat(document.getElementById('bk-val').value)||15000);
+      var pf=valFee(bkval);
+      var plan=pf*0.90;
+      var npdes=(pf+plan)*0.10;
+      var smip=smipFee(bkval,true), green=greenFee(bkval);
+      var total=pf+plan+npdes+iss+auto+smip+green+imaging;
+      var scopeLabel=bkScope==='both'?'Bathroom + Kitchen remodel':bkScope==='bath'?'Bathroom remodel':'Kitchen remodel';
       document.getElementById('r-total').textContent=fdk(total);
-      var catItem=(CATS[currentCat]||[]).find(function(i){return i.k===currentPermitKey;})||{};
-      document.getElementById('r-sub').textContent=catItem.name||currentPermitKey;
-      document.getElementById('r-permit').textContent=permitFee>0?fd(permitFee):'N/A';
-      document.getElementById('r-plan').textContent=planFee>0?fd(planFee):'Included';
-      document.getElementById('r-mep').textContent='N/A';
-      document.getElementById('r-state').textContent=fd(stateAdmin+(imagingFee>0?imagingFee:0));
+      document.getElementById('r-sub').textContent=scopeLabel+' — valuation '+fd(bkval);
+      document.getElementById('r-permit').textContent=fd(pf);
+      document.getElementById('r-plan').textContent=fd(plan);
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      rows=buildStdRows(pf,plan,npdes,smip,green,iss,auto,imaging,imgPages,imgRate,null);
+      rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+      warns.push('Non-structural remodels only. Fees calculated using Section C valuation-based table.');
 
-      if(planFee>0)rows.push(tr('Plan review fee (Section A)',fd(planFee)));
-      if(permitFee>0)rows.push(tr('Permit fee (Section A)',fd(permitFee)));
-      rows.push(tr('NPDES stormwater fee — 10% of permit + plan review',fd(npdes)));
-      rows.push(tr('Permit issuance fee (Section E)',fd(iss)));
-      rows.push(tr('Automation fee (Section E)',fd(auto)));
-      rows.push(tr('SMIP + Green Building Standards (minimum)',fd(smipFee+greenFee)));
-      if(imagingFee>0)rows.push(tr('Digital imaging fee — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate+' (Section E)',fd(imagingFee)));
+    } else if(currentOTC==='panel'){
+      var pf=71, npdes=pf*0.10;
+      var total=pf+npdes+iss+auto+0.50+1+imaging;
+      document.getElementById('r-total').textContent=fdk(total);
+      document.getElementById('r-sub').textContent='Main panel upgrade / replacement — residential';
+      document.getElementById('r-permit').textContent=fd(pf);
+      document.getElementById('r-plan').textContent='Included';
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+1.50+(imaging>0?imaging:0));
+      rows.push(tr('Service panel upgrade permit',fd(pf)));
+      rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP + Green Building (minimum)',fd(1.50)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
       rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
 
-      if(p.note)warns.push(p.note);
+    } else if(currentOTC==='mobile_home'){
+      var mhval=Math.max(1,parseFloat(document.getElementById('mh-val').value)||10000);
+      var pf=mhType==='pc'?190:285, plan=mhType==='pc'?pf:0, permitF=mhType==='pc'?0:pf;
+      var npdes=(pf)*0.10;
+      var smip=smipFee(mhval,true), green=greenFee(mhval);
+      var total=pf+npdes+iss+auto+smip+green+imaging;
+      document.getElementById('r-total').textContent=fdk(total);
+      document.getElementById('r-sub').textContent='Mobile home — '+(mhType==='pc'?'plan review':'permit');
+      document.getElementById('r-permit').textContent=mhType==='pm'?fd(pf):'Included';
+      document.getElementById('r-plan').textContent=mhType==='pc'?fd(pf):'N/A';
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      rows.push(tr('Manufactured home '+(mhType==='pc'?'plan review':'permit'),fd(pf)));
+      rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP',fd(smip)));
+      rows.push(tr('Green Building Standards SB 1473',fd(green)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+      rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+
+    } else if(currentOTC==='repipe'){
+      var rpval=Math.max(1,parseFloat(document.getElementById('rp-val').value)||3000);
+      var pf=rpType==='wh'?48:valFee(rpval);
+      var plan=rpType==='wh'?0:pf*0.90;
+      var npdes=(pf+plan)*0.10;
+      var smip=smipFee(rpval,true), green=greenFee(rpval);
+      var total=pf+plan+npdes+iss+auto+smip+green+imaging;
+      var rpLabel=rpType==='wh'?'Water heater change-out':'Repipe / sewer cleanout';
+      document.getElementById('r-total').textContent=fdk(total);
+      document.getElementById('r-sub').textContent=rpLabel;
+      document.getElementById('r-permit').textContent=fd(pf);
+      document.getElementById('r-plan').textContent=plan>0?fd(plan):'Included';
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      if(plan>0)rows.push(tr('Plan review fee',fd(plan)));
+      rows.push(tr(rpLabel+' permit',fd(pf)));
+      rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP',fd(smip)));
+      rows.push(tr('Green Building Standards SB 1473',fd(green)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+      rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+
+    } else if(currentOTC==='reroof'){
+      var rrval=Math.max(1,parseFloat(document.getElementById('rr-val').value)||8000);
+      var pf=380, npdes=pf*0.10;
+      var smip=smipFee(rrval,true), green=greenFee(rrval);
+      var total=pf+npdes+iss+auto+smip+green+imaging;
+      document.getElementById('r-total').textContent=fdk(total);
+      document.getElementById('r-sub').textContent='Re-roof — residential (no structural calculations)';
+      document.getElementById('r-permit').textContent=fd(pf);
+      document.getElementById('r-plan').textContent='Included';
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      rows.push(tr('Re-roof permit (plan review + inspection included)',fd(pf)));
+      rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP',fd(smip)));
+      rows.push(tr('Green Building Standards SB 1473',fd(green)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+      rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+
+    } else if(currentOTC==='solar'){
+      var kw=Math.min(10,parseFloat(document.getElementById('sol-kw').value)||6);
+      var sval=Math.max(1,parseFloat(document.getElementById('sol-val').value)||20000);
+      var planFee=200; // base ≤15kW — OTC is ≤10kW so always base
+      var permitFee=250;
+      var npdes=(planFee+permitFee)*0.10;
+      var smip=smipFee(sval,true), green=greenFee(sval);
+      var total=planFee+permitFee+npdes+iss+auto+smip+green+imaging;
+      document.getElementById('r-total').textContent=fdk(total);
+      document.getElementById('r-sub').textContent='Residential solar PV — '+kw+'kW AC';
+      document.getElementById('r-permit').textContent=fd(permitFee);
+      document.getElementById('r-plan').textContent=fd(planFee);
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      rows.push(tr('Solar PV plan review (≤15kW base rate)',fd(planFee)));
+      rows.push(tr('Solar PV permit',fd(permitFee)));
+      rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP',fd(smip)));
+      rows.push(tr('Green Building Standards SB 1473',fd(green)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+      rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+      warns.push('OTC solar limited to 10kW AC or less. Fees capped per CA Gov Code 66015(a)(1).');
+      document.getElementById('r-solar-note').style.display='flex';
+
+    } else if(currentOTC==='window'){
+      var count=Math.max(1,parseInt(document.getElementById('win-count').value)||3);
+      var wval=Math.max(1,parseFloat(document.getElementById('win-val').value)||5000);
+      var pf=count<=5?380:380+(count-5)*38;
+      var npdes=pf*0.10;
+      var smip=smipFee(wval,true), green=greenFee(wval);
+      var total=pf+npdes+iss+auto+smip+green+imaging;
+      document.getElementById('r-total').textContent=fdk(total);
+      document.getElementById('r-sub').textContent='Window / door changeout — '+count+' unit'+(count>1?'s':'');
+      document.getElementById('r-permit').textContent=fd(pf);
+      document.getElementById('r-plan').textContent='Included';
+      document.getElementById('r-npdes').textContent=fd(npdes);
+      document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+      rows.push(tr('Window / door permit — first 5 (flat fee)',fd(Math.min(count,5)*380/Math.min(count,5)===380?380:380)));
+      if(count>5)rows.push(tr('Additional windows — '+(count-5)+' × $38',fd((count-5)*38)));
+      rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+      rows.push(tr('Permit issuance fee',fd(iss)));
+      rows.push(tr('Automation fee',fd(auto)));
+      rows.push(tr('SMIP',fd(smip)));
+      rows.push(tr('Green Building Standards SB 1473',fd(green)));
+      if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+      rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
+      warns.push('No change in opening size allowed for OTC window permits.');
     }
+    document.getElementById('r-grade').style.display='none';
+
+  } else if(mode==='a'){
+    var key=document.getElementById('a-type').value;
+    var p=SA[key]||{};
+    var aval=parseFloat(document.getElementById('a-val').value)||10000;
+    var planFee=p.pc||0, permitFee=p.pm||0;
+    if(p.lf){var lf=parseInt(document.getElementById('a-lf').value)||100;if(p.pc>0)planFee=Math.max(p.lfMin||0,p.pc*lf);if(p.pm>0)permitFee=Math.max(p.lfMin||0,p.pm*lf);}
+    if(p.kw){var kw=parseFloat(document.getElementById('a-kw').value)||30;if(p.pc>0){planFee=p.pc;if(kw>p.kwBase){var over=kw-p.kwBase;if(p.kwRate2&&p.kwThresh){var mid=Math.min(over,p.kwThresh-p.kwBase),top=Math.max(0,over-(p.kwThresh-p.kwBase));planFee+=mid*p.kwRate+top*p.kwRate2;}else planFee+=over*p.kwRate;}}}
+    document.getElementById('a-lf-row').style.display=p.lf?'block':'none';
+    document.getElementById('a-kw-row').style.display=p.kw?'block':'none';
+    document.getElementById('r-solar-note').style.display=p.solar?'flex':'none';
+    var npdes=(planFee+permitFee)*0.10;
+    var smip=smipFee(aval,true), green=greenFee(aval);
+    var total=planFee+permitFee+npdes+iss+auto+smip+green+imaging;
+    document.getElementById('r-total').textContent=fdk(total);
+    document.getElementById('r-sub').textContent=document.getElementById('a-type').options[document.getElementById('a-type').selectedIndex].text;
+    document.getElementById('r-permit').textContent=permitFee>0?fd(permitFee):'N/A';
+    document.getElementById('r-plan').textContent=planFee>0?fd(planFee):'Included';
+    document.getElementById('r-npdes').textContent=fd(npdes);
+    document.getElementById('r-state').textContent=fd(iss+auto+smip+green+(imaging>0?imaging:0));
+    if(planFee>0)rows.push(tr('Plan review fee',fd(planFee)));
+    if(permitFee>0)rows.push(tr('Permit fee',fd(permitFee)));
+    rows.push(tr('NPDES stormwater fee (10%)',fd(npdes)));
+    rows.push(tr('Permit issuance fee',fd(iss)));
+    rows.push(tr('Automation fee',fd(auto)));
+    rows.push(tr('SMIP',fd(smip)));
+    rows.push(tr('Green Building Standards SB 1473',fd(green)));
+    if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+    rows.push(tr('TOTAL PERMIT COST',fdk(total),true));
     document.getElementById('r-grade').style.display='none';
 
   } else {
     var pf=0, ev=0, gradeOn, gCy;
-
     if(mode==='b'){
       var sqft=parseInt(document.getElementById('sqft').value)||0;
       pf=projType==='res'?bPermit(sqft):cPermit(sqft,document.getElementById('occ').value);
@@ -680,45 +801,33 @@ function go(){
       document.getElementById('c-grade-row').style.display=gradeOn?'block':'none';
       gCy=parseInt(document.getElementById('c-cy').value)||500;
     }
-
-    var plumbId=mode==='b'?'b-plumb':'c-plumb';
-    var elecId=mode==='b'?'b-elec':'c-elec';
-    var mechId=mode==='b'?'b-mech':'c-mech';
-
+    var plId=mode==='b'?'b-plumb':'c-plumb', elId=mode==='b'?'b-elec':'c-elec', mId=mode==='b'?'b-mech':'c-mech';
     var plan=pf*0.90, mep=0, mepLines=[];
-    [{id:plumbId,l:'Plumbing review & inspection (+10%)'},{id:elecId,l:'Electrical review & inspection (+10%)'},{id:mechId,l:'Mechanical review & inspection (+10%)'}].forEach(function(x){
-      if(document.getElementById(x.id).checked){var v=pf*0.10;mep+=v;mepLines.push({l:x.l,v:v});}
-    });
-
+    [{id:plId,l:'Plumbing review & inspection (+10%)'},{id:elId,l:'Electrical review & inspection (+10%)'},{id:mId,l:'Mechanical review & inspection (+10%)'}].forEach(function(x){if(document.getElementById(x.id).checked){var v=pf*0.10;mep+=v;mepLines.push({l:x.l,v:v});}});
     var npdes=(pf+plan)*0.10;
-    var smipFee=smip(ev,mode==='b'&&projType==='res');
-    var greenFee=green(ev);
-    var stateAdmin=npdes+iss+auto+smipFee+greenFee;
+    var smip=smipFee(ev,mode==='b'&&projType==='res'), green=greenFee(ev);
+    var stateAdmin=npdes+iss+auto+smip+green;
     var build=pf+plan+mep+stateAdmin;
     var gradeFees=null, gradeTotal=0;
     if(gradeOn){gradeFees=grading(gCy);gradeTotal=gradeFees.total;}
-    var grand=build+gradeTotal+imagingFee;
-
+    var grand=build+gradeTotal+imaging;
     document.getElementById('r-total').textContent=fdk(grand);
-    document.getElementById('r-sub').textContent='Building: '+fdk(build)+(gradeTotal>0?' + Grading: '+fdk(gradeTotal):'')+(imagingFee>0?' + Imaging: '+fd(imagingFee):'');
+    document.getElementById('r-sub').textContent='Building: '+fdk(build)+(gradeTotal>0?' + Grading: '+fdk(gradeTotal):'')+(imaging>0?' + Imaging: '+fd(imaging):'');
     document.getElementById('r-permit').textContent=fdk(pf);
     document.getElementById('r-plan').textContent=fdk(plan);
-    document.getElementById('r-mep').textContent=mep>0?fdk(mep):'$0';
-    document.getElementById('r-state').textContent=fdk(stateAdmin+(imagingFee>0?imagingFee:0));
-
-    rows=[tr('Building permit fee (Section '+(mode==='b'?'B':'C')+')',fd(pf)),tr('Plan review fee — 90% of permit fee',fd(plan))];
+    document.getElementById('r-npdes').textContent=fd(npdes);
+    document.getElementById('r-state').textContent=fdk(stateAdmin+(imaging>0?imaging:0));
+    rows=[tr('Building permit fee (Section '+(mode==='b'?'B':'C')+')',fd(pf)),tr('Plan review fee — 90% of permit',fd(plan))];
     mepLines.forEach(function(ml){rows.push(tr(ml.l,fd(ml.v)));});
-    rows=rows.concat([tr('NPDES stormwater fee — 10% of permit + plan review',fd(npdes)),tr('Permit issuance fee (Section E)',fd(iss)),tr('Automation fee (Section E)',fd(auto)),tr('SMIP — Strong Motion Instrumentation',fd(smipFee)),tr('Green Building Standards SB 1473',fd(greenFee))]);
-    if(imagingFee>0)rows.push(tr('Digital imaging fee — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate+' (Section E)',fd(imagingFee)));
-    rows.push(tr('Building fees subtotal',fdk(build+imagingFee),true));
+    rows=rows.concat([tr('NPDES stormwater fee (10%)',fd(npdes)),tr('Permit issuance fee',fd(iss)),tr('Automation fee',fd(auto)),tr('SMIP',fd(smip)),tr('Green Building Standards SB 1473',fd(green))]);
+    if(imaging>0)rows.push(tr('Digital imaging — '+imgPages+' page'+(imgPages!==1?'s':'')+' × $'+imgRate,fd(imaging)));
+    rows.push(tr('Building subtotal',fdk(build+imaging),true));
     if(gradeTotal>0)rows.push(tr('Grading fees — see breakdown below',fd(gradeTotal)));
     rows.push(tr('TOTAL PERMIT COST',fdk(grand),true));
-
-    var rg=document.getElementById('r-grade'), rgr=document.getElementById('r-grade-rows');
-    if(gradeOn&&gradeFees){rg.style.display='block';rgr.innerHTML=[tr('Grading plan check',fd(gradeFees.pc)),tr('Grading permit',fd(gradeFees.pm)),tr('Grading permit issuance fee',fd(gradeFees.iss)),tr('Grading total',fd(gradeFees.total),true)].join('');}
+    var rg=document.getElementById('r-grade'),rgr=document.getElementById('r-grade-rows');
+    if(gradeOn&&gradeFees){rg.style.display='block';rgr.innerHTML=[tr('Grading plan check',fd(gradeFees.pc)),tr('Grading permit',fd(gradeFees.pm)),tr('Grading permit issuance',fd(gradeFees.iss)),tr('Grading total',fd(gradeFees.total),true)].join('');}
     else rg.style.display='none';
-
-    if(mode==='b'&&projType==='com')warns.push('Multi-occupancy projects: fees are assessed separately per occupancy group and added together.');
+    if(mode==='b'&&projType==='com')warns.push('Multi-occupancy projects: fees are assessed separately per occupancy group.');
     if(gradeOn)warns.push('Grading permits are submitted and processed independently from the building permit.');
   }
 
@@ -728,7 +837,6 @@ function go(){
   else wb.style.display='none';
 }
 
-renderPermitList();
 go();
 </script>
 </body>
